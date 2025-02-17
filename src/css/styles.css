@@ -51,7 +51,7 @@ input, select {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
-    border: none;
+    border: 2px solid var(--dark-green);
     background: #EAEAEA;
 }
 
@@ -68,7 +68,7 @@ select {
 button {
     padding: 10px 15px;
     border-radius: 15px;
-    border: none;
+    border: 2px solid var(--dark-green);
     background: white;
     color: var(--dark-green);
     cursor: pointer;
