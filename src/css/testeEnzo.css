@@ -1,3 +1,17 @@
+:root {
+    --light-green: #A4B58E;
+    --dark-green: #5A5F4F;
+    --lighter-green: #C6E5B1;
+    --beige: #F0EADB;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-green);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 h2 {
     display: block;
     background: var(--dark-green);
@@ -8,7 +22,7 @@ h2 {
     margin-bottom: 5px;
     font-size: 22px;
 }
-h3 {
+label {
     display: block;
     background: var(--dark-green);
     color: white;
@@ -23,6 +37,8 @@ body {
 }
 .container{
     width: 400px;
+    height: fit-content;
+    margin:10vh;
 }
 .containerOutline {
     background: var(--light-green);
@@ -30,11 +46,25 @@ body {
     border-radius: 10px;
     border: 2px solid var(--dark-green);
     width: 300;
+    height: 90vh;
 }
 .Tudo{
     background: var(--light-green);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    place-items: center center;
-}   
+    grid-template-rows:  1fr 1fr;
+    height: 100%;
+    
+
+}
+header{
+    background-color: var(--beige);
+}
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: #EAEAEA;
+}
