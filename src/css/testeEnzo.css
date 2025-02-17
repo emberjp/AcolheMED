@@ -1,0 +1,31 @@
+h2 {
+    display: block;
+    background: var(--dark-green);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+h3 {
+    display: block;
+    background: var(--dark-green);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+body {
+    background-color: var(--beige);
+}
+.containerOutline {
+    background: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+    border-style: solid ;
+    border-color: var(--dark-green);
+    width: 300px;
+}
