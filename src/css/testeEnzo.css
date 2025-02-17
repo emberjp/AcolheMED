@@ -21,11 +21,20 @@ h3 {
 body {
     background-color: var(--beige);
 }
+.container{
+    width: 400px;
+}
 .containerOutline {
     background: var(--light-green);
     padding: 20px;
     border-radius: 10px;
-    border-style: solid ;
-    border-color: var(--dark-green);
-    width: 300px;
+    border: 2px solid var(--dark-green);
+    width: 300;
 }
+.Tudo{
+    background: var(--light-green);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center center;
+}   
