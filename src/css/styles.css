@@ -1,6 +1,8 @@
 :root {
     --light-green: #A4B58E;
     --dark-green: #5A5F4F;
+    --lighter-green: #C6E5B1;
+    --beige: #F0EADB;
 }
 
 * {
@@ -21,6 +23,17 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 300px;
+}
+
+#container-login {
+    border-radius: 45px;
+    border: 3px solid var(--light-green);
+    background: var(--lighter-green);
+    padding: 30px;
+    text-align: center;
+    width: 350px;
+    height: 300px;
+    position: relative;
 }
 
 label {
