@@ -25,7 +25,7 @@ body {
     width: 300px;
 }
 
-#container-login {
+#login-container {
     border-radius: 45px;
     border: 3px solid var(--light-green);
     background: var(--lighter-green);
@@ -83,17 +83,6 @@ button:hover {
     display: block;
     margin: 10px auto;
     padding: 10px 15px;
-}
-
-
-
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
 }
 
 h1 {
