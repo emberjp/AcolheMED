@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente</title>
+    <link rel="stylesheet" href="../src/css/reset.css" />
+    <link rel="stylesheet" href="../src/css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome">
+        
+        <label for="nascimento">Data de nascimento</label>
+        <input type="date" id="nascimento" name="nascimento">
+        
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf">
+        
+        <label for="sexo">Sexo</label>
+        <select id="sexo" name="sexo">
+            <option>Selecione</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+        </select>
+        
+        <label for="cidade">Cidade</label>
+        <select id="cidade" name="cidade">
+            <option>Selecione</option>
+        </select>
+        
+        <div class="buttons">
+            <button>Desconectar</button>
+            <button>Confirmar</button>
+        </div>
+        
+        <button class="tabela-btn">Tabela</button>
+    </div>
+</body>
+</html>

@@ -1,12 +1,78 @@
+:root {
+    --light-green: #A4B58E;
+    --dark-green: #5A5F4F;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--light-green);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
+
+.container {
+    background: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+label {
+    display: block;
+    background: var(--dark-green);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: none;
+    background: #EAEAEA;
+}
+
+select {
+    background: #666;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: none;
+    background: white;
+    color: var(--dark-green);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+.tabela-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 15px;
+}
+
+
 
 .login-container {
     background-color: #fff;
@@ -24,31 +90,4 @@ h1 {
 .form-group {
     margin-bottom: 15px;
     text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
 }
