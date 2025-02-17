@@ -8,7 +8,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: var(--light-green);
     display: grid;
-    justify-content: center;
+  
+    grid-template-rows:  1fr 1fr;
     align-items: center;
     height: 100vh;
 }
@@ -49,11 +50,13 @@ body {
     height: 90vh;
 }
 .Tudo{
+    justify-self: center;
     background: var(--light-green);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows:  1fr 1fr;
     height: 100%;
+    width: 80%;
     
 
 }
@@ -67,4 +70,22 @@ input, select {
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
+}
+select {
+    background: #666;
+    color: white;
+}
+.containerHeader{
+    background-color: var(--lighter-green);
+    height:12vh ;
+    display: block;
+    border-bottom-left-radius:40px ;
+    border-bottom-right-radius:40px ;
+
+    
+   
+}
+#Logo{
+    padding-left: 3vw;
+    padding-top: 1vh;
 }

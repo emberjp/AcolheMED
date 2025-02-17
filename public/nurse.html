@@ -10,7 +10,11 @@
 
   <body>
     <header>
-      <div></div>
+      <div class="containerHeader">
+        <img src="../Images/LogoCerta.png" id="Logo"alt="Logo" width="89" height="89">
+        <button type="TrocaTela" id="ButDados">Dados Paciente</button>
+        <button type="TrocaTela" id="ButPro">Protocolo</button>
+      </div>
     </header>
     <main>
       <div class="Tudo">
@@ -64,6 +68,13 @@
             <h2 class="titulosec">Sinais Vitais Especificos</h2>
             <div class="containerOutline">
               <label for="Especificidade">Especificidade</label>
+              <select id="Especificidade" name="Especificidade">
+                <option>Selecione</option>
+                <option>Queimaduras</option>
+                <option>Sangramento</option>
+                <option>Qeuixa Respiratória</option>
+                <option>Outro</option>
+            </select>
             </div>
           </section>
         </div>
