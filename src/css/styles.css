@@ -11,7 +11,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--light-green);
+    background-color: var(--beige);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,4 +92,52 @@ h1 {
 .form-group {
     margin-bottom: 15px;
     text-align: left;
+}
+
+.container-doctor{
+    background: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header-patient-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.info-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    color: #000000;
+    background: #EAEAEA;
+    height: 35px;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    background: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+.box {
+    padding: 30px;
+    border: 2px solid var(--dark-green);
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#icon {
+    background-color: var(--lighter-green);
+    
+}
+
+img {
+    width: 50%;
 }
