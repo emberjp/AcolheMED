@@ -5,6 +5,7 @@
     --beige: #F0EADB;
     --whitemine: #E8E9ED;
 }
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--light-green);
@@ -14,6 +15,7 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 h2 {
     display: block;
     background: var(--dark-green);
@@ -24,6 +26,7 @@ h2 {
     margin-bottom: 5px;
     font-size: 22px;
 }
+
 label {
     display: block;
     background: var(--dark-green);
@@ -34,14 +37,17 @@ label {
     margin-bottom: 5px;
     font-size: 20px;
 }
+
 body {
     background-color: var(--beige);
 }
+
 .container{
     width: 400px;
     height: fit-content;
     margin:10vh;
 }
+
 .containerOutline {
     background: var(--light-green);
     padding: 20px;
@@ -60,20 +66,22 @@ body {
     grid-template-rows:  1fr 1fr;
     width: 75vw;
     position: relative;
-    
-
 }
+
 header{
     background-color: var(--beige);
 }
+
 .foot{
     justify-self: center;
     background: var(--light-green);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
+    /*grid-template-columns: 1fr 1fr 1fr;*/
     width: 75vw;
     position: relative;
 }
+
 input, select {
     width: 90%;
     padding: 10px;
@@ -83,8 +91,8 @@ input, select {
     background: #EAEAEA;
     font-size: 15px;
     font-family: Arial, sans-serif;
-    
 }
+
 textarea{
     width: 90%;
     padding: 10px;
@@ -97,16 +105,17 @@ textarea{
     font-size: 15px;
     font-family: Arial, sans-serif;
     overflow:hidden;
-    
-
 }
+
 #Alergia{
     height: 100px;
 }
+
 select {
     background: #666;
     color: white;
 }
+
 .containerHeader{
     background-color: var(--lighter-green);
     display: flex;
@@ -114,19 +123,20 @@ select {
     border-bottom-right-radius:40px ;
     position: center;
 }
+
 #Logo{
     padding-left: 3vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
     margin-left: 60px;
-    
 }
+
 .butoes {
     padding-left: 30vw;
     padding-top: 4vh;
 }
+
 button {
-    
     padding: 10px 15px;
     border-radius: 45px;
     border: 3px solid var(--dark-green);
@@ -136,11 +146,9 @@ button {
     font-size: 22px;
     width: 200px;
     height: fit-content;
-   
-    
 }
+
 #ButDados{
-   
     padding: 10px 15px;
     border-radius: 45px;
     background: var(--dark-green);
@@ -149,11 +157,13 @@ button {
     margin-left: -180px;
 
 }
+
 #ButDados:hover{
     background-color: var(--light-green);
     border: 3px solid var(--whitemine);
     color: white;
 }
+
 #ButPro{
     padding: 10px 15px;
     border-radius: 45px;
@@ -163,18 +173,24 @@ button {
     cursor: pointer;
     position: center;
     margin-left: 170px;
+    width: 250px;
 }
+
 .Butfoot{
     background-color: var(--lighter-green);
     border: 4px solid var(--whitemine);
     color:black;
-    margin-left: 160px;
-    margin-bottom: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 30px;
+    width: 250px;
 }
+
 .Butfoot:hover{
     background-color:var(--dark-green); 
     color:white;
 }
+
 #ButConfirmar{
     margin-left:170px;
 }
