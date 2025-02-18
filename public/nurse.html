@@ -3,7 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nurse</title>
+    <link rel="stylesheet" href="../src/css/reset.css" />
+    <link rel="stylesheet" href="../src/css/testeEnzo.css" />
+    <title>Tela Enfermeiro</title>
   </head>
-  <body></body>
+
+  <body>
+    <header>
+      <div class="containerHeader">
+        <img src="../Images/LogoCerta.png" id="Logo"alt="Logo" width="89" height="89">
+        <div class= "butoes">
+        <button type="TrocaTela" id="ButDados">Dados Paciente</button>
+        <button type="TrocaTela" id="ButPro">Protocolo</button>
+       </div>
+      </div>
+    </header>
+    <main>
+      <div class="Tudo">
+        <div class="container">
+          <section>
+            <!-- Abordagem Inicial -->
+            <h2 class="titulosec">Abordagem Inicial</h2>
+            <div class="containerOutline">
+              <label for="Queixa">Queixa Principal</label>
+              <input type="text" id="Queixa" name="Queixa" />
+              <label for="Obsrvações">Obsrvações</label>
+              <input type="text" id="Obsrvações" name="Obsrvações" />
+              <label for="Medicamento">Medicamento(s)</label>
+              <input type="text" id="Medicamento" name="Medicamento" />
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section>
+            <!-- Dados extras -->
+            <h2 class="titulosec">Dados extras</h2>
+            <div class="containerOutline">
+              <label for="Alergia">Alergias</label>
+              <input type="text" id="Alergia" name="Alergia" />
+              <label for="Dor ">Escala de dor</label>
+              <input type="text" id="Dor" name="Dor" />
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section>
+            <!-- Sinais Vitais Prinicipais -->
+            <h2 class="titulosec">Sinais Vitais Principais</h2>
+            <div class="containerOutline">
+              <label for="Temp">Temperatura</label>
+              <input type="text" id="Temp" name="Temp" />
+              <label for="Arterial">Pressão Arterial</label>
+              <input type="text" id="Arterial" name="Arterial" />
+              <label for="Cardiaca">Frequência Cardiaca</label>
+              <input type="text" id="Cardiaca" name="Cardiaca" />
+              <label for="Respriatória">Frequência Respiratória </label>
+              <input type="text" id="Respiratória" name="Respiratória" />
+              <label for="Peso">Peso(kg)</label>
+              <input type="text" id="Peso" name="Peso" />
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section>
+            <!-- Sinais Vitais Especificos -->
+            <h2 class="titulosec">Sinais Vitais Especificos</h2>
+            <div class="containerOutline">
+              <label for="Especificidade">Especificidade</label>
+              <select id="Especificidade" name="Especificidade">
+                <option>Selecione</option>
+                <option>Queimaduras</option>
+                <option>Sangramento</option>
+                <option>Qeuixa Respiratória</option>
+                <option>Outro</option>
+            </select>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
 </html>
