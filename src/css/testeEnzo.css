@@ -3,6 +3,7 @@
     --dark-green: #5A5F4F;
     --lighter-green: #C6E5B1;
     --beige: #F0EADB;
+    --whitemine: #E8E9ED;
 }
 body {
     font-family: Arial, sans-serif;
@@ -48,6 +49,7 @@ body {
     border: 2px solid var(--dark-green);
     width: 300;
     height: 90vh;
+    position: relative;
 }
 .Tudo{
     justify-self: center;
@@ -55,8 +57,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows:  1fr 1fr;
-    height: 100%;
-    width: 80%;
+   
+    position: relative;
     
 
 }
@@ -77,15 +79,57 @@ select {
 }
 .containerHeader{
     background-color: var(--lighter-green);
-    height:12vh ;
-    display: block;
+    display: flex;
     border-bottom-left-radius:40px ;
     border-bottom-right-radius:40px ;
-
-    
-   
+    position: center;
 }
 #Logo{
     padding-left: 3vw;
     padding-top: 1vh;
+    padding-bottom: 1vh;
+    
 }
+.butoes {
+    padding-left: 30vw;
+    padding-top: 4vh;
+}
+button {
+    
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: white;
+    color: var(--dark-green);
+    cursor: pointer;
+    font-size: 22px;
+    width: fit-content;
+    height: fit-content;
+   
+    
+}
+#ButDados{
+   
+    padding: 10px 15px;
+    border-radius: 45px;
+    background: var(--dark-green);
+    color: var(--whitemine);
+    cursor: pointer;
+    position: center;
+
+}
+#ButDados:hover{
+    background-color: var(--light-green);
+    border: 2px solid var(--whitemine);
+    color: white;
+}
+#ButPro{
+    padding: 10px 15px;
+    border-radius: 45px;
+    border: 2px solid var(--whitemine);
+    background: var(--light-green);
+    color: var(--whitemine);
+    cursor: pointer;
+    position: center;
+}
+
