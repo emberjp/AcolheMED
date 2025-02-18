@@ -1,6 +1,6 @@
 :root {
-    --light-green: #A4B58E;
-    --dark-green: #5A5F4F;
+    --light-green: #A4BD92;
+    --dark-green: #575E51;
     --lighter-green: #C6E5B1;
     --beige: #F0EADB;
 }
@@ -16,6 +16,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.body-form {
+    flex-direction: column;
+    height: auto;
+}
+
+.head {
+    background: var(--lighter-green);
+    width: 100%;
+    height: 120px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .container {
@@ -39,7 +52,7 @@ body {
 label {
     display: block;
     background: var(--dark-green);
-    color: white;
+    color: var(--beige);
     padding: 10px;
     border-radius: 15px;
     width: fit-content;
@@ -52,12 +65,12 @@ input, select {
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
-    background: #EAEAEA;
+    background: var(--beige);
 }
 
 select {
-    background: #666;
-    color: white;
+    background: var(--dark-green);
+    color: var(--beige);
 }
 
 .buttons {
@@ -69,20 +82,14 @@ button {
     padding: 10px 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
-    background: white;
+    background: var(--beige);
     color: var(--dark-green);
     cursor: pointer;
 }
 
 button:hover {
     background-color: var(--dark-green);
-    color: white;
-}
-
-.tabela-btn {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 15px;
+    color: var(--beige);
 }
 
 h1 {
