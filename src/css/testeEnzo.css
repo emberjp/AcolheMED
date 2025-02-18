@@ -1,0 +1,135 @@
+:root {
+    --light-green: #A4B58E;
+    --dark-green: #5A5F4F;
+    --lighter-green: #C6E5B1;
+    --beige: #F0EADB;
+    --whitemine: #E8E9ED;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-green);
+    display: grid;
+  
+    grid-template-rows:  1fr 1fr;
+    align-items: center;
+    height: 100vh;
+}
+h2 {
+    display: block;
+    background: var(--dark-green);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+label {
+    display: block;
+    background: var(--dark-green);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+body {
+    background-color: var(--beige);
+}
+.container{
+    width: 400px;
+    height: fit-content;
+    margin:10vh;
+}
+.containerOutline {
+    background: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--dark-green);
+    width: 300;
+    height: 90vh;
+    position: relative;
+}
+.Tudo{
+    justify-self: center;
+    background: var(--light-green);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+   
+    position: relative;
+    
+
+}
+header{
+    background-color: var(--beige);
+}
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: #EAEAEA;
+}
+select {
+    background: #666;
+    color: white;
+}
+.containerHeader{
+    background-color: var(--lighter-green);
+    display: flex;
+    border-bottom-left-radius:40px ;
+    border-bottom-right-radius:40px ;
+    position: center;
+}
+#Logo{
+    padding-left: 3vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    
+}
+.butoes {
+    padding-left: 30vw;
+    padding-top: 4vh;
+}
+button {
+    
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: white;
+    color: var(--dark-green);
+    cursor: pointer;
+    font-size: 22px;
+    width: fit-content;
+    height: fit-content;
+   
+    
+}
+#ButDados{
+   
+    padding: 10px 15px;
+    border-radius: 45px;
+    background: var(--dark-green);
+    color: var(--whitemine);
+    cursor: pointer;
+    position: center;
+
+}
+#ButDados:hover{
+    background-color: var(--light-green);
+    border: 2px solid var(--whitemine);
+    color: white;
+}
+#ButPro{
+    padding: 10px 15px;
+    border-radius: 45px;
+    border: 2px solid var(--whitemine);
+    background: var(--light-green);
+    color: var(--whitemine);
+    cursor: pointer;
+    position: center;
+}
+
