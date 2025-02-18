@@ -13,8 +13,8 @@
       <div class="containerHeader">
         <img src="../Images/LogoCerta.png" id="Logo"alt="Logo" width="89" height="89">
         <div class= "butoes">
-        <button type="TrocaTela" id="ButDados">Dados Paciente</button>
-        <button type="TrocaTela" id="ButPro">Protocolo</button>
+          <button type="TrocaTela" id="ButDados">Dados Paciente</button>
+          <button type="TrocaTela" id="ButPro">Protocolo</button>
        </div>
       </div>
     </header>
@@ -26,11 +26,11 @@
             <h2 class="titulosec">Abordagem Inicial</h2>
             <div class="containerOutline">
               <label for="Queixa">Queixa Principal</label>
-              <input type="text" id="Queixa" name="Queixa" />
+              <textarea type="text" id="Queixa" name="Queixa" required  />  </textarea>
               <label for="Obsrvações">Obsrvações</label>
-              <input type="text" id="Obsrvações" name="Obsrvações" />
+              <textarea type="text" id="Obsrvações" name="Obsrvações" required /></textarea>
               <label for="Medicamento">Medicamento(s)</label>
-              <input type="text" id="Medicamento" name="Medicamento" />
+              <textarea type="text" id="Medicamento" name="Medicamento" required /></textarea>
             </div>
           </section>
         </div>
@@ -40,9 +40,9 @@
             <h2 class="titulosec">Dados extras</h2>
             <div class="containerOutline">
               <label for="Alergia">Alergias</label>
-              <input type="text" id="Alergia" name="Alergia" />
+              <textarea type="text" id="Alergia" name="Alergia" required textarea></textarea>
               <label for="Dor ">Escala de dor</label>
-              <input type="text" id="Dor" name="Dor" />
+              <input type="number" id="Dor" name="Dor" required min="0" max="10"/>
             </div>
           </section>
         </div>
@@ -51,16 +51,16 @@
             <!-- Sinais Vitais Prinicipais -->
             <h2 class="titulosec">Sinais Vitais Principais</h2>
             <div class="containerOutline">
-              <label for="Temp">Temperatura</label>
-              <input type="text" id="Temp" name="Temp" />
-              <label for="Arterial">Pressão Arterial</label>
-              <input type="text" id="Arterial" name="Arterial" />
-              <label for="Cardiaca">Frequência Cardiaca</label>
-              <input type="text" id="Cardiaca" name="Cardiaca" />
-              <label for="Respriatória">Frequência Respiratória </label>
-              <input type="text" id="Respiratória" name="Respiratória" />
+              <label for="Temp">Temperatura(°C)</label>
+              <input type="number" id="Temp" name="Temp" required/>
+              <label for="Arterial">Pressão Arterial(mmHg)</label>
+              <input type="number" id="Arterial" name="Arterial" required/>
+              <label for="Cardiaca">Frequência Cardiaca(bpm)</label>
+              <input type="number" id="Cardiaca" name="Cardiaca"required />
+              <label for="Respriatória">Frequência Respiratória(rpm) </label>
+              <input type="number" id="Respiratória" name="Respiratória"required />
               <label for="Peso">Peso(kg)</label>
-              <input type="text" id="Peso" name="Peso" />
+              <input type="number" id="Peso" name="Peso" required />
             </div>
           </section>
         </div>
@@ -70,18 +70,33 @@
             <h2 class="titulosec">Sinais Vitais Especificos</h2>
             <div class="containerOutline">
               <label for="Especificidade">Especificidade</label>
-              <select id="Especificidade" name="Especificidade">
+              <select id="Especificidade" name="Especificidade" required>
                 <option>Selecione</option>
                 <option>Queimaduras</option>
                 <option>Sangramento</option>
                 <option>Qeuixa Respiratória</option>
                 <option>Outro</option>
+                </select>
+              <label for="Es1">----</label>
+              <input type="number" id="Es1" name="Es1" required/>
+              <label for="Es2">----</label>
+              <input type="number" id="Es2" name="Es2" required/>
+              <label for="Es3">----</label>
+              <input type="number" id="Es3" name="Es3" required/>
+              <label for="Es4">----</label>
+              <input type="number" id="Es4" name="Es4" required/>
             </select>
             </div>
           </section>
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="foot">
+        <button type="TrocaTela" id="ButDesconectar" class="Butfoot">Desconectar</button>
+        <button type="TrocaTela" id="ButConfirmar" class="Butfoot">Confirmar</button>
+      </div>
+
+    </footer>
   </body>
 </html>

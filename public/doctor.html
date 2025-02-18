@@ -1,72 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/css/reset.css" />
+    <link rel="stylesheet" href="../src/css/testeEnzo.css" />
+    <title>Doctor</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doctor</title>
-  <link rel="stylesheet" href="../src/css/reset.css" />
-  <link rel="stylesheet" href="../src/css/styles.css" />
-</head>
-<!--<header>
-    <div id="icon">
-      <img src='../icon.png'>
-    </div>
-  </header>-->
-
-<body>
-  <div class="container-doctor">
-    <div class="header-patient-data">
-      <div>
-        <label for="nome">Nome</label>
-        <label class="info-box" for="nome">João</label>
+  <body>
+    <header>
+      <div class="containerHeader">
+        <img src="../Images/LogoCerta.png" id="Logo"alt="Logo" width="89" height="89">
+        <div class= "butoes">
+          <button type="TrocaTela" id="ButDados">Iniciar Consulta</button>
+          <button type="TrocaTela" id="ButPro">Cancelar Consulta</button>
+       </div>
       </div>
-      <div>
-        <label for="resultado">Resultado</label>
-        <label class="info-box" for="resultado">🟥-Urgente</label>
+    </header>
+    <main>
+      <div class="Tudo">
+        <div class="container">
+          <section>
+            <!-- Abordagem Inicial -->
+            <h2 class="titulosec">Abordagem Inicial</h2>
+            <div class="containerOutline">
+              <label for="Queixa">Queixa Principal</label>
+              <textarea type="text" id="Queixa" name="Queixa" readonly>  </textarea>
+              <label for="Obsrvações">Obsrvações</label>
+              <textarea type="text" id="Obsrvações" name="Obsrvações" readonly></textarea>
+              <label for="Medicamento">Medicamento(s)</label>
+              <textarea type="text" id="Medicamento" name="Medicamento" readonly></textarea>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section>
+            <!-- Dados extras -->
+            <h2 class="titulosec">Dados extras</h2>
+            <div class="containerOutline">
+              <label for="Alergia">Alergias</label>
+              <textarea type="text" id="Alergia" name="Alergia" readonly></textarea>
+              <label for="Dor ">Escala de dor</label>
+              <input type="number" id="Dor" name="Dor" required min="0" max="10" readonly/>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section>
+            <!-- Sinais Vitais Prinicipais -->
+            <h2 class="titulosec">Sinais Vitais Principais</h2>
+            <div class="containerOutline">
+              <label for="Temp">Temperatura(°C)</label>
+              <input type="number" id="Temp" name="Temp" readonly/>
+              <label for="Arterial">Pressão Arterial(mmHg)</label>
+              <input type="number" id="Arterial" name="Arterial" readonly/>
+              <label for="Cardiaca">Frequência Cardiaca(bpm)</label>
+              <input type="number" id="Cardiaca" name="Cardiaca"readonly />
+              <label for="Respriatória">Frequência Respiratória(rpm) </label>
+              <input type="number" id="Respiratória" name="Respiratória"readonly/>
+              <label for="Peso">Peso(kg)</label>
+              <input type="number" id="Peso" name="Peso" readonly/>
+            </div>
+          </section>
+        </div>
+        <div class="container">
+          <section>
+            <!-- Sinais Vitais Especificos -->
+            <h2 class="titulosec">Sinais Vitais Especificos</h2>
+            <div class="containerOutline">
+              <label for="Especificidade">Especificidade</label>
+              <textarea type="text" id="especificidade" readonly></textarea>
+              <label for="Es1">----</label>
+              <input type="number" id="Es1" name="Es1" readonly>
+              <label for="Es2">----</label>
+              <input type="number" id="Es2" name="Es2" readonly/>
+              <label for="Es3">----</label>
+              <input type="number" id="Es3" name="Es3" readonly/>
+              <label for="Es4">----</label>
+              <input type="number" id="Es4" name="Es4" readonly/>
+            </select>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
-    
-    <div class="info-container">
-      <div class="box">
-        <label>Abordagem Inicial</label>
-        <label>Queixa Principal</label>
-        <label class="info-box"></label>
-        <label>Observações</label>
-        <label class="info-box"></label>
-        <label>Medicamento(s)</label>
-        <label class="info-box"></label>
+    </main>
+    <footer>
+      <div class="foot">
+        <button type="TrocaTela" class="Butfoot">Desconectar</button>
+        <button type="TrocaTela" class="Butfoot">Terminar Consulta</button>
+        <button type="TrocaTela" class="Butfoot">Próximo Paciente</button>
       </div>
-
-      <div class="box">
-        <label>Outros Dados</label>
-        <label>Alergias</label>
-        <label class="info-box"></label>
-        <label>Escala de dor</label>
-        <label class="info-box"></label>
-      </div>
-
-      <div class="box">
-        <label>Sinais Vitais Principais</label>
-        <label>Temperatura(°C)</label>
-        <label class="info-box"></label>
-        <label>Pressão Arterial</label>
-        <label class="info-box"></label>
-        <label>Frequência Cardíaca</label>
-        <label class="info-box"></label>
-        <label>Frequência Repiratória</label>
-        <label class="info-box"></label>
-        <label>Peso(Kg)</label>
-        <label class="info-box"></label>
-      </div>
-
-      <div class="box">
-        <label>Sinais Vitais Específicos</label>
-        <label>Especificidade</label>
-        <label class="info-box"></label>
-      </div>
-    </div>
-  </div>
-</body>
-
+    </footer>
+  </body>
 </html>
