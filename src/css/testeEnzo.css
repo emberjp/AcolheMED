@@ -8,7 +8,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--light-green);
+    background-color: var(--beige);
     display: grid;
   
     grid-template-rows:  1fr 1fr;
@@ -36,10 +36,6 @@ label {
     width: fit-content;
     margin-bottom: 5px;
     font-size: 20px;
-}
-
-body {
-    background-color: var(--beige);
 }
 
 .container{
