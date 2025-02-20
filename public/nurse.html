@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../src/css/reset.css" />
     <link rel="stylesheet" href="../src/css/testeEnzo.css" />
     <title>Tela Enfermeiro</title>
+    <script src="../src/js/Enzo.js"></script>
   </head>
 
   <body>
@@ -13,7 +14,7 @@
       <div class="containerHeader">
         <img src="../Images/LogoCerta.png" id="Logo"alt="Logo" width="89" height="89">
         <div class= "butoes">
-          <button type="TrocaTela" id="ButDados">Dados Paciente</button>
+         <a href="patientData.html"> <button type="TrocaTela" id="ButDados">Dados Paciente</button></a>
           <button type="TrocaTela" id="ButPro">Protocolo</button>
        </div>
       </div>
@@ -26,11 +27,11 @@
             <h2 class="titulosec">Abordagem Inicial</h2>
             <div class="containerOutline">
               <label for="Queixa">Queixa Principal</label>
-              <textarea type="text" id="Queixa" name="Queixa" required  />  </textarea>
+              <textarea class="preencher" type="text" id="Queixa" name="Queixa" required  />  </textarea>
               <label for="Obsrvações">Obsrvações</label>
               <textarea type="text" id="Obsrvações" name="Obsrvações" required /></textarea>
               <label for="Medicamento">Medicamento(s)</label>
-              <textarea type="text" id="Medicamento" name="Medicamento" required /></textarea>
+              <textarea type="text"  id="Medicamento" name="Medicamento" required /></textarea>
             </div>
           </section>
         </div>
@@ -42,7 +43,7 @@
               <label for="Alergia">Alergias</label>
               <textarea type="text" id="Alergia" name="Alergia" required textarea></textarea>
               <label for="Dor ">Escala de dor</label>
-              <input type="number" id="Dor" name="Dor" required min="0" max="10"/>
+              <input type="number" class="preencher" id="Dor" name="Dor" required min="0" max="10"/>
             </div>
           </section>
         </div>
@@ -52,40 +53,39 @@
             <h2 class="titulosec">Sinais Vitais Principais</h2>
             <div class="containerOutline">
               <label for="Temp">Temperatura(°C)</label>
-              <input type="number" id="Temp" name="Temp" required/>
+              <input type="number"class="preencher" id="Temp" name="Temp" required/>
               <label for="Arterial">Pressão Arterial(mmHg)</label>
-              <input type="number" id="Arterial" name="Arterial" required/>
+              <input type="number"class="preencher" id="Arterial" name="Arterial" required/>
               <label for="Cardiaca">Frequência Cardiaca(bpm)</label>
-              <input type="number" id="Cardiaca" name="Cardiaca"required />
+              <input type="number"class="preencher" id="Cardiaca" name="Cardiaca"required />
               <label for="Respriatória">Frequência Respiratória(rpm) </label>
-              <input type="number" id="Respiratória" name="Respiratória"required />
+              <input type="number"class="preencher" id="Respiratória" name="Respiratória"required />
               <label for="Peso">Peso(kg)</label>
-              <input type="number" id="Peso" name="Peso" required />
+              <input type="number" class="preencher" id="Peso" name="Peso" required />
             </div>
           </section>
         </div>
-        <div class="container">
+        <div class="container" >
           <section>
             <!-- Sinais Vitais Especificos -->
             <h2 class="titulosec">Sinais Vitais Especificos</h2>
-            <div class="containerOutline">
+            <div class="containerOutline" id="casoespecial">
               <label for="Especificidade">Especificidade</label>
-              <select id="Especificidade" name="Especificidade" required>
-                <option>Selecione</option>
-                <option>Queimaduras</option>
-                <option>Sangramento</option>
-                <option>Qeuixa Respiratória</option>
-                <option>Outro</option>
+              <select id="Especificidade" name="Especificidade"  onchange="mudarEspecificade()">
+                <option value="padrao">Selecione</option>
+                <option value="Intoxicações">Intoxicações Exógenas</option>
+                <option value="PA">Alteração da Pressão Arterial</option>
                 </select>
-              <label for="Es1">----</label>
-              <input type="number" id="Es1" name="Es1" required/>
-              <label for="Es2">----</label>
-              <input type="number" id="Es2" name="Es2" required/>
-              <label for="Es3">----</label>
-              <input type="number" id="Es3" name="Es3" required/>
-              <label for="Es4">----</label>
-              <input type="number" id="Es4" name="Es4" required/>
-            </select>
+              <label for="Es1"  id="Les1">----</label>
+              <input type="number"class="preencher" id="Es1" name="Es1" required/>
+              <label for="Es2" id="Les2">----</label>
+              <input type="number" class="preencher" id="Es2" name="Es2" required/>
+              <label for="Es3" id="Les3">----</label>
+              <input type="checkbox" class="checkbox" id="Es3" name="Es3" />
+              <label for="Es4" id="Les4" >----</label>
+              <input type="checkbox"class="checkbox" id="Es4" name="Es4" />
+              <label for="Es5" id="Les5" >----</label>
+              <input type="checkbox"class="checkbox" id="Es5" name="Es5" />
             </div>
           </section>
         </div>
@@ -93,10 +93,9 @@
     </main>
     <footer>
       <div class="foot">
-        <button type="TrocaTela" id="ButDesconectar" class="Butfoot">Desconectar</button>
-        <button type="TrocaTela" id="ButConfirmar" class="Butfoot">Confirmar</button>
+        <a  href="login.html"> <button type="TrocaTela" id="ButDesconectar" class="Butfoot" >Desconectar</button></a>
+        <button type="TrocaTela" id="ButConfirmar" class="Butfoot" onclick="verifica()">Confirmar</button>
       </div>
-
     </footer>
   </body>
 </html>
