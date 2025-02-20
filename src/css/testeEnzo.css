@@ -45,7 +45,8 @@ body {
 .container{
     width: 400px;
     height: fit-content;
-    margin:10vh;
+    margin:auto;
+    padding: 40px;
 }
 
 .containerOutline {
@@ -205,7 +206,6 @@ button {
     width: 350px;
     height: 300px;
     position: relative;
-    place-self: center;
     align-self: center;
 }
 
@@ -231,4 +231,9 @@ button {
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
     font-size: 15px;
+}
+
+#PatientInfo {
+    display: inline;
+    height: 100px;
 }
