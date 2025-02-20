@@ -34,28 +34,32 @@ function mudarEspecificade()
    Label4.textContent ="Sintomas Associados";
    Label5.textContent ="Hipotensão em criança";
    Mudanca.type='Number';
-    }
-}
+    };
+};
 function verifica() {
-    var Label5 = document.getElementById('Les5');
-    var inputs = document.querySelectorAll('.preencher');
-    var todosPreenchidos = true;
-
-    // Verifica se algum input está vazio
-    inputs.forEach(function(input) { // Usar 'input' no lugar de 'inputs' aqui
-        if (input.value === '') {
-            todosPreenchidos = false;
-        }
+    // Pega todos os elementos de formulário com atributo "required"
+    const camposObrigatorios = document.querySelectorAll('[required]');
+    
+    let formularioValido = true;
+    let mensagemErro = "";
+  
+    // Itera sobre todos os campos obrigatórios
+    camposObrigatorios.forEach(campo => {
+      // Verifica se o campo está vazio
+      if (!campo.value.trim()) {
+        formularioValido = false;
+        mensagemErro += `O campo "${campo.previousElementSibling.textContent}" é obrigatório.\n`;
+      }
     });
-
-    // Exibe a mensagem dependendo da verificação
-    var mensagem = document.getElementById('mensagem');
-    if (todosPreenchidos) {
-        mensagem.textContent = 'Todos os campos foram preenchidos!';
-        Label5.textContent = "HAAAAAAAAAAAAAAA";
+  
+    // Se algum campo não foi preenchido, mostra a mensagem de erro
+    if (!formularioValido) {
+      alert(mensagemErro); // Exibe as mensagens de erro em um alerta
     } else {
-        mensagem.textContent = 'Por favor, preencha todos os campos.';
-        Label5.textContent = "BBBBBBBBBBBBBBBB";
+      // Se todos os campos obrigatórios foram preenchidos
+      alert("Formulário enviado com sucesso!");
+      // Aqui você pode adicionar o código para enviar o formulário se necessário
     }
-}
-
+  }
+  
+    
