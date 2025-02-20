@@ -11,7 +11,7 @@ body {
     background-color: var(--beige);
     display: grid;
   
-    grid-template-rows:  1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr;
     align-items: center;
     height: 100vh;
 }
@@ -50,11 +50,13 @@ label {
     padding: 20px;
     border-radius: 30px;
     border: 3px solid var(--dark-green);
-    width: 300;
-    height: 70vh;
+    width: 25vw;
+    height: 75vh;
     position: relative;
 }
-
+#casoespecial {
+    min-height: fit-content;
+}
 .Tudo{
     justify-self: center;
     background: var(--light-green);
@@ -64,11 +66,9 @@ label {
     width: 75vw;
     position: relative;
 }
-
 header{
     background-color: var(--beige);
 }
-
 .foot{
     justify-self: center;
     background: var(--light-green);
@@ -78,9 +78,13 @@ header{
     width: 75vw;
     position: relative;
 }
-
+.checkbox{
+   
+    width:20px ;
+    height:20px ;
+}
 input, select {
-    width: 90%;
+    width: 22vw;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -103,36 +107,30 @@ textarea{
     font-family: Arial, sans-serif;
     overflow:hidden;
 }
-
 #Alergia{
     height: 100px;
 }
-
 select {
     background: #666;
     color: white;
 }
-
 .containerHeader{
     background-color: var(--lighter-green);
     display: flex;
     border-bottom-left-radius:40px ;
     border-bottom-right-radius:40px ;
-    position: center;
 }
-
 #Logo{
     padding-left: 3vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
     margin-left: 60px;
 }
-
 .butoes {
-    padding-left: 30vw;
-    padding-top: 4vh;
+    padding-left: 30%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
-
 button {
     padding: 10px 15px;
     border-radius: 45px;
@@ -144,7 +142,6 @@ button {
     width: 200px;
     height: fit-content;
 }
-
 #ButDados{
     padding: 10px 15px;
     border-radius: 45px;
@@ -152,7 +149,6 @@ button {
     color: var(--whitemine);
     cursor: pointer;
     margin-left: -180px;
-
 }
 
 #ButDados:hover{
@@ -199,7 +195,7 @@ button {
     padding: 30px;
     margin: auto;
     text-align: center;
-    width: 350px;
+    width: 370px;
     height: 300px;
     position: relative;
     align-self: center;

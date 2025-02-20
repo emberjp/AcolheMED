@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-//the contend for test
+//the content for test
 function loadPatientData() {
     document.getElementById("Queixa").textContent = "Dor de cabeça ideswdfwantensa"; 
     document.getElementById("Obsrvações").textContent = "Paciente relatou início há 3 dias";
