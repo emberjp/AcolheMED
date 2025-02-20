@@ -14,44 +14,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//checks the login informations and redirects the user to their respective pages
 function checkCredentials(username, password, errorMessage) {
     if (username === "" || password === "") {
         errorMessage.textContent = "Preencha todos os campos!";
         errorMessage.style.display = "block";
         return;
     }
-    checkDataBase(username, password, errorMessage);
-}
+    
+    const data = checkDataBase(username, password);//(is in data base, user type)
 
-function checkDataBase(username, password, errorMessage) {
-    if (!isInDataBase(username, password)) {
+    if (!data[0]) {
         alert("Usuário ou senha incorretos!");
         errorMessage.style.display = "block";
     } else {
         alert("Login bem-sucedido!");
-        switch (findUserType(username, password)) {
-            case 0:
-                window.location.href = "doctor.html";
-                break;
-            case 1:
+        const userType = data[1];
+        
+        if(userType === 0){
+            window.location.href = "doctor.html";
+        }
+        else if(userType === 1){
                 window.location.href = "nurse.html";
-                break;
-            case 2:
+        }
+        else if(userType === 2){
                 window.location.href = "receptionist.html";
-                break;
         }
     }
 }
 
-function isInDataBase(username, password) {
-    if(true){
-        return username === "admin" && password === "12";
-    } else {
-        return false;
-    }
-    
-}
-
-function findUserType(username, password) {
-    return 0; // Aqui você pode adicionar lógica real para diferenciar usuários
+//checks if the user is in db, returns a tuple[bool, int] indicating [is in db, user type]
+//this is just a test function
+//types: 0-doctor, 1-nurse, 2-receptionist
+function checkDataBase(username, password) {
+    if(username === "doctor" && password === "123")
+        return [true, 0];
+    else if(username === "nurse" && password === "123")
+        return [true, 1]
+    else if(username === "jorge" && password === "123")
+        return [true, 2]
+    else
+        return [false, -1];
 }
