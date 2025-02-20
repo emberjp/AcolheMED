@@ -1,22 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const desconectarBtn = document.querySelector(".Butfoot:nth-child(1)");
-    const terminarConsultaBtn = document.querySelector(".Butfoot:nth-child(2)");
-    const proximoPacienteBtn = document.querySelector(".Butfoot:nth-child(3)");
-
+    const disconnectBtn = document.querySelector(".Butfoot:nth-child(1)");
+    const endAppointmentBtn = document.querySelector(".Butfoot:nth-child(2)");
+    const startAppointmentBtn = document.getElementById("ButDados");
+    const nextPatientBtn = document.querySelector(".Butfoot:nth-child(3)");
+    const cancelAppointmentBtn = document.getElementById("ButPro");
+    
     // Evento para desconectar
-    desconectarBtn.addEventListener("click", function () {
+    disconnectBtn.addEventListener("click", function () {
         if (confirm("Deseja realmente sair?")) {
             window.location.href = "login.html"; // Redireciona para login
         }
     });
 
     // Evento para terminar consulta
-    terminarConsultaBtn.addEventListener("click", function () {
+    endAppointmentBtn.addEventListener("click", function () {
         alert("Consulta finalizada com sucesso!");
+        
     });
 
     // Evento para próximo paciente
-    proximoPacienteBtn.addEventListener("click", function () {
+    nextPatientBtn.addEventListener("click", function () {
         alert("Chamando próximo paciente...");
+        cleanPatientData();
+    });
+
+    cancelAppointmentBtn.addEventListener("click", function() {
+        if (confirm("Deseja cancelar a consulta?")) {
+            cleanPatientData();
+        }
+    });
+
+    startAppointmentBtn.addEventListener("click", function() {
+        loadPatientData();
     });
 });
+
+function 
