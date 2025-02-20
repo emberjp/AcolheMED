@@ -5,24 +5,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextPatientBtn = document.querySelector(".Butfoot:nth-child(3)");
     const cancelAppointmentBtn = document.getElementById("ButPro");
     
-    // Evento para desconectar
     disconnectBtn.addEventListener("click", function () {
         if (confirm("Deseja realmente sair?")) {
-            window.location.href = "login.html"; 
+            window.location.href = "login.html";
         }
     });
 
-    // Evento para terminar consulta
     endAppointmentBtn.addEventListener("click", function () {
         alert("Consulta finalizada com sucesso!");
+        cleanPatientData();
         
     });
 
-    // Evento para próximo paciente
     nextPatientBtn.addEventListener("click", function () {
         alert("Chamando próximo paciente...");
-        //cleanPatientData();
-        preencherDados();
+        loadPatientData();
     });
 
     cancelAppointmentBtn.addEventListener("click", function() {
@@ -36,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function preencherDados() {
+
+//the contend for test
+function loadPatientData() {
     document.getElementById("Queixa").textContent = "Dor de cabeça ideswdfwantensa"; 
     document.getElementById("Obsrvações").textContent = "Paciente relatou início há 3 dias";
     document.getElementById("Medicamento").innerHTML = "Paracetamol 750mg";
@@ -55,4 +54,10 @@ function preencherDados() {
     document.getElementById("Es2").textContent = "200";
     document.getElementById("Es3").textContent = "300";
     document.getElementById("Es4").textContent = "400";
+}
+
+function cleanPatientData(){
+    document.querySelectorAll(".show-info-box, .show-info-line").forEach(element => {
+        element.innerHTML = ""; // Limpa o conteúdo das divs
+    });
 }
