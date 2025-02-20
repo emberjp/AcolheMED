@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="../src/css/testeEnzo.css" />
 </head>
 <body>
+    <script src="../src/js/login.js"></script>
     <div id="login-container">
-        
-          <label for="username">Usuário</label>
-          <input type="text" id="username" placeholder="Usuário" required>
+        <form id="login-form">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Usuário" required>
+            
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Senha" required>
           
-          <label for="password">Senha</label>
-          <input type="password" id="password" placeholder="Senha" required>
-          
-          <button type="submit">Entrar</button>
-      
+            <button type="submit">Entrar</button>
+
+        </form>
       </div>
 </body>
 </html>
