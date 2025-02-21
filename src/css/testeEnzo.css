@@ -177,7 +177,7 @@ button {
     margin-left:170px;
 }
 
-#login-container {
+#login {
     border-radius: 45px;
     border: 3px solid var(--light-green);
     background: var(--lighter-green);
@@ -200,7 +200,6 @@ button {
     background: #EAEAEA;
     resize: none;
     height: 70px;
-    font-size: 15px;
     overflow:hidden;
 }
 
@@ -235,5 +234,4 @@ main {
 #login-form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start
 }

@@ -83,17 +83,17 @@ label {
     height: 55vh;
     position: relative; */
 }
+
 #casoespecial {
     min-height: fit-content;
 }
+
 .Tudo{
     /* justify-self: center; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    /* align-items: flex-start; */
-    /* position: relative; */
     width: 100%;
 }
 
@@ -212,27 +212,24 @@ button {
 }
 
 .show-info-box {
-    /* width: 90%; */
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
-    /* resize: none; */
     height: 70px;
     font-size: 15px;
     overflow:hidden;
 }
 
 .show-info-line {
-    /* width: 90%; */
-    /* height: 4%; */
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
     font-size: 15px;
+    min-height: 40px;
 }
 
 #PatientInfo {
