@@ -1,0 +1,251 @@
+:root {
+    --light-green: #A4B58E;
+    --dark-green: #5A5F4F;
+    --lighter-green: #C6E5B1;
+    --beige: #F0EADB;
+    --whitemine: #E8E9ED;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--beige);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    display: block;
+    background: var(--dark-green);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.containerHeader{
+    background-color: var(--lighter-green);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    border-bottom-left-radius:40px ;
+    border-bottom-right-radius:40px ;
+}
+
+header{
+    background-color: var(--beige);
+}
+
+#icon {
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px;
+    padding-left: 50px;
+}
+
+#header-button {
+    display: flex;
+    flex-grow: 1;
+    justify-content:space-around;
+}
+
+label {
+    display: block;
+    background: var(--dark-green);
+    color: var(--beige);
+    padding: 10px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.container{
+    width: 50%;
+    padding: 10px;
+}
+
+.containerOutline {
+    background: var(--light-green);
+    padding: 20px;
+    border-radius: 30px;
+    border: 3px solid var(--dark-green);
+    /* width: 500;
+    height: 55vh;
+    position: relative; */
+}
+#casoespecial {
+    min-height: fit-content;
+}
+.Tudo{
+    /* justify-self: center; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* align-items: flex-start; */
+    /* position: relative; */
+    width: 100%;
+}
+
+.foot{
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    position: relative;
+    margin: 30px;
+}
+.checkbox{
+   
+    width:20px ;
+    height:20px ;
+}
+input, select {
+    width: 22vw;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: #EAEAEA;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+textarea{
+    /* width: 90%; */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: #EAEAEA;
+    /* resize: none; */
+    height: 70px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    overflow:hidden;
+}
+#Alergia{
+    height: 100px;
+}
+select {
+    background: #666;
+    color: white;
+}
+
+.butoes {
+    padding-left: 30%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 45px;
+    border: 3px solid var(--dark-green);
+    background-color: var(--dark-green);
+    color: var(--whitemine);
+    cursor: pointer;
+    font-size: 22px;
+    height: fit-content;
+}
+
+/* #ButDados{
+    margin-left: 100px;
+} */
+
+#ButDados:hover{
+    background-color: var(--light-green);
+    border: 3px solid var(--whitemine);
+    color: white;
+}
+
+#ButPro{
+    padding: 10px 15px;
+    border: 3px solid var(--whitemine);
+    background: var(--light-green);
+    color: var(--whitemine);
+    position: center;
+    margin-left: 170px;
+    width: 250px;
+}
+
+.Butfoot{
+    background-color: var(--lighter-green);
+    border: 3px solid var(--dark-green);
+    color:black;
+    width: 250px;
+}
+
+.Butfoot:hover{
+    background-color:var(--dark-green); 
+    color:white;
+}
+
+#ButConfirmar{
+    margin-left:170px;
+}
+
+#login-container {
+    border-radius: 45px;
+    border: 3px solid var(--light-green);
+    background: var(--lighter-green);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: fit-content;
+    height: 300px;
+    position: relative;
+}
+
+.show-info-box {
+    /* width: 90%; */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: #EAEAEA;
+    /* resize: none; */
+    height: 70px;
+    font-size: 15px;
+    overflow:hidden;
+}
+
+.show-info-line {
+    /* width: 90%; */
+    /* height: 4%; */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--dark-green);
+    background: #EAEAEA;
+    font-size: 15px;
+}
+
+#PatientInfo {
+    display: inline;
+    height: 100px;
+}
+
+main {
+    width: 100%;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start
+}
