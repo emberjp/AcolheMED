@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const disconnectBtn = document.querySelector(".Butfoot:nth-child(1)");
-    const endAppointmentBtn = document.querySelector(".Butfoot:nth-child(2)");
-    const startAppointmentBtn = document.getElementById("ButDados");
-    const nextPatientBtn = document.querySelector(".Butfoot:nth-child(3)");
-    const cancelAppointmentBtn = document.getElementById("ButPro");
+    const disconnectBtn = document.getElementById("Desconectar");
+    const endAppointmentBtn = document.getElementById("Terminar");
+    const startAppointmentBtn = document.getElementById("Iniciar");
+    const nextPatientBtn = document.getElementById("Proximo");
+    const cancelAppointmentBtn = document.getElementById("Cancelar");
     
     disconnectBtn.addEventListener("click", function () {
         if (confirm("Deseja realmente sair?")) {

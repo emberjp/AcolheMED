@@ -6,6 +6,10 @@
     --whitemine: #E8E9ED;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--beige);
@@ -26,10 +30,38 @@ h2 {
     font-size: 22px;
 }
 
+.containerHeader {
+    background-color: var(--lighter-green);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+header {
+    background-color: var(--beige);
+}
+
+#icon {
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px;
+    padding-left: 50px;
+}
+
+#header-button {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
 label {
     display: block;
     background: var(--dark-green);
-    color: white;
+    color: var(--beige);
     padding: 10px;
     border-radius: 15px;
     width: fit-content;
@@ -37,10 +69,9 @@ label {
     font-size: 20px;
 }
 
-.container{
-    width: 25%;
-    height: fit-content;
-    padding: 40px;
+.container {
+    width: 50%;
+    padding: 10px;
 }
 
 .containerOutline {
@@ -48,26 +79,24 @@ label {
     padding: 20px;
     border-radius: 30px;
     border: 3px solid var(--dark-green);
-    width: 500;
-    height: 55vh;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 #casoespecial {
     min-height: fit-content;
 }
-.Tudo{
-    justify-self: center;
+
+.Tudo {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: nowrap;
-    position: relative;
+    flex-wrap: wrap;
     width: 100%;
 }
-header{
-    background-color: var(--beige);
-}
-.foot{
+
+.foot {
     justify-self: center;
     display: flex;
     flex-direction: row;
@@ -77,57 +106,40 @@ header{
     position: relative;
     margin: 30px;
 }
-.checkbox{
-   
-    width:20px ;
-    height:20px ;
+
+.checkbox {
+    margin-right: 96%;
 }
+
 input, select {
-    width: 22vw;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
     font-size: 15px;
-    font-family: Arial, sans-serif;
 }
 
-textarea{
-    width: 90%;
+textarea {
+    min-width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
-    resize: none;
     height: 70px;
     font-size: 15px;
     font-family: Arial, sans-serif;
-    overflow:hidden;
+    overflow: hidden;
 }
-#Alergia{
+
+#Alergia {
     height: 100px;
 }
+
 select {
     background: #666;
     color: white;
-}
-.containerHeader{
-    background-color: var(--lighter-green);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: flex-start;
-    width: 100%;
-    border-bottom-left-radius:40px ;
-    border-bottom-right-radius:40px ;
-}
-#Logo{
-    padding-left: 3vw;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    margin-left: 60px;
 }
 
 .butoes {
@@ -135,6 +147,7 @@ select {
     padding-top: 1%;
     padding-bottom: 1%;
 }
+
 button {
     padding: 10px 15px;
     border-radius: 45px;
@@ -145,17 +158,18 @@ button {
     font-size: 22px;
     height: fit-content;
 }
-#ButDados{
-    margin-left: 100px;
-}
 
-#ButDados:hover{
+/* #ButDados{
+    margin-left: 100px;
+} */
+
+#ButDados:hover {
     background-color: var(--light-green);
     border: 3px solid var(--whitemine);
     color: white;
 }
 
-#ButPro{
+#ButPro {
     padding: 10px 15px;
     border: 3px solid var(--whitemine);
     background: var(--light-green);
@@ -165,23 +179,23 @@ button {
     width: 250px;
 }
 
-.Butfoot{
+.Butfoot {
     background-color: var(--lighter-green);
     border: 3px solid var(--dark-green);
-    color:black;
+    color: black;
     width: 250px;
 }
 
-.Butfoot:hover{
-    background-color:var(--dark-green); 
-    color:white;
+.Butfoot:hover {
+    background-color: var(--dark-green);
+    color: white;
 }
 
-#ButConfirmar{
-    margin-left:170px;
+#ButConfirmar {
+    margin-left: 170px;
 }
 
-#login {
+#login-container {
     border-radius: 45px;
     border: 3px solid var(--light-green);
     background: var(--lighter-green);
@@ -196,26 +210,24 @@ button {
 }
 
 .show-info-box {
-    width: 90%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
-    resize: none;
     height: 70px;
-    overflow:hidden;
+    font-size: 15px;
+    overflow: hidden;
 }
 
 .show-info-line {
-    width: 90%;
-    height: 4%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
     border: 2px solid var(--dark-green);
     background: #EAEAEA;
     font-size: 15px;
+    min-height: 40px;
 }
 
 #PatientInfo {
@@ -227,15 +239,8 @@ main {
     width: 100%;
 }
 
-#icon {
-    display: flex;
-    justify-content: flex-start;
-    margin: 15px;
-    flex-basis: 500px;
-    padding-left: 50px;
-}
-
 #login-form {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start
 }
