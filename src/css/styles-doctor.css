@@ -108,11 +108,10 @@ label {
 }
 
 .checkbox {
-    
+    margin-right: 96%;
 }
 
 input, select {
-    min-width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 15px;
