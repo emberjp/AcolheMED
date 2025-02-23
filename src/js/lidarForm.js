@@ -21,7 +21,7 @@ function coletarDadosFormulario() {
     const es5 = document.getElementById("Es5").checked;
   
     const prontuario = new Prontuario(queixa, observacoes, medicamentos, alergias, dor, temperatura, pressaoArterial, freqCardiaca, freqRespiratoria, peso, especificidade, es1, es2, es3, es4, es5);
-    const paciente = new Patient("Jon","01/07/1985","111","s","esperando");
+    const paciente = new Patient("Jon","01/07/1985","111","s","esperando",prontuario.getId());
     
     listaDeEspera.adicionarPaciente(paciente);
     console.log("Add");

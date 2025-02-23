@@ -1,11 +1,12 @@
 class Patient {
-    constructor(name, birthDate, cpf, gender, city, status){
+    constructor(name, birthDate, cpf, gender, city, status, prontuario_id){
         this.name = name;
         this.birthDate = birthDate;
         this.cpf = cpf;
         this.gender = gender;
         this.city = city;
         this.status = status;
+        this.prontuario_id=prontuario_id;
     }
 
     getInfo(){
@@ -18,7 +19,7 @@ class Patient {
             status: this.status
         };
     }
-
+    
     changeStatus(newStatus){
         this.status = newStatus;
     }
