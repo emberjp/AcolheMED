@@ -62,4 +62,13 @@ function verifica() {
     }
   }
   
+ document.addEventListener("DOMContentLoaded", function () {
+    const disconnectBtn = document.getElementById("ButDesconectar");
     
+    disconnectBtn.addEventListener("click", function () {
+        if (confirm("Deseja realmente sair?")) {
+            localStorage.removeItem("user"); // Remove o usuário do localStorage
+            window.location.href = "login.html";
+        }
+    });
+});   

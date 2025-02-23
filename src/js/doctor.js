@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     disconnectBtn.addEventListener("click", function () {
         if (confirm("Deseja realmente sair?")) {
+            localStorage.removeItem("user"); // Remove o usuário do localStorage
             window.location.href = "login.html";
         }
     });
