@@ -1,14 +1,8 @@
-import fs from "fs";
-import { v4 as uuidv4 } from "uuid";
-
-// Caminhos dos arquivos JSON
-const PRONTUARIOS_FILE = "prontuarios.json";
-
 
 // Classe Prontuario (os prontuários são salvos permanentemente)
 class Prontuario {
     constructor(queixa, observacoes, medicamentos, alergias, dor, temperatura, pressaoArterial, freqCardiaca, freqRespiratoria, peso, especificidade, es1, es2, es3, es4, es5) {
-        this.id = uuidv4(); // Identificador único para o prontuário
+        this.id = 0; // Identificador único para o prontuário
         this.queixa = queixa;
         this.observacoes = observacoes;
         this.medicamentos = medicamentos;
@@ -34,20 +28,35 @@ class Prontuario {
         return this.prioridade;
     }
     // Salva o prontuário permanentemente no JSON
-    static salvarProntuario(prontuario) {
-        let prontuarios = [];
-        if (fs.existsSync(PRONTUARIOS_FILE)) {
-            prontuarios = JSON.parse(fs.readFileSync(PRONTUARIOS_FILE, "utf8"));
+    async salvarProntuario() {
+        try {
+            const resposta = await fetch("http://localhost:3000/adicionar-prontuario", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this)
+            });
+    
+            const dados = await resposta.json();
+            if (!resposta.ok) throw new Error(dados.message || "Erro ao salvar prontuário");
+    
+            this.id = dados.id; // Atualiza o ID com o que foi salvo no servidor
+            console.log("Prontuário salvo com sucesso:", dados);
+        } catch (error) {
+            console.error("Erro ao salvar prontuário:", error);
         }
-        prontuarios.push(prontuario);
-        fs.writeFileSync(PRONTUARIOS_FILE, JSON.stringify(prontuarios, null, 2));
     }
-
-    static buscarProntuarioPorId(id) {
-        if (!fs.existsSync(PRONTUARIOS_FILE)) return null;
-        const prontuarios = JSON.parse(fs.readFileSync(PRONTUARIOS_FILE, "utf8"));
-        return prontuarios.find(prontuario => prontuario.id === id) || null;
+    
+    static async obterProntuario(id) {
+        try {
+            const resposta = await fetch(`http://localhost:3000/obter-prontuario?id=${id}`);
+            if (!resposta.ok) throw new Error("Erro ao obter prontuário");
+    
+            return await resposta.json();
+        } catch (error) {
+            console.error("Erro ao obter prontuário:", error);
+        }
     }
 }
+
 
 export default Prontuario;

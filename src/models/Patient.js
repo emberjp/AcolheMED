@@ -16,10 +16,11 @@ class Patient {
             cpf: this.cpf,
             gender: this.gender,
             city: this.city,
-            status: this.status
+            status: this.status,
+            prontuario_id: this.prontuario_id
         };
     }
-    
+
     changeStatus(newStatus){
         this.status = newStatus;
     }
