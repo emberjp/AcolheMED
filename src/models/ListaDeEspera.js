@@ -1,6 +1,6 @@
 class ListaDeEspera {
     static lista = [];
-
+    static id=0;
     static async carregarLista() {
         try {
             const response = await fetch("/obter-lista");
@@ -9,7 +9,20 @@ class ListaDeEspera {
             console.error("Erro ao carregar lista de espera:", error);
         }
     }
+    static async atualizarLista() {
+        try {
+            const resposta = await fetch("/atualizar-lista", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.lista),
+            });
 
+            if (!resposta.ok) throw new Error("Erro ao atualizar lista");
+
+        } catch (error) {
+            console.error("Erro ao atualizar lista:", error);
+        }
+    }
     static async adicionarPaciente(paciente) {
         try {
             const resposta = await fetch("http://localhost:3000/adicionar-paciente", {
@@ -23,8 +36,11 @@ class ListaDeEspera {
 
             console.log("Paciente adicionado com sucesso:", dados);
             
+            paciente.id=dados.id;   
             // Atualiza a lista localmente
             this.lista.push(paciente);
+
+
             console.log("aaa",this.lista);
 
             

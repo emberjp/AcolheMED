@@ -76,25 +76,23 @@ const server = http.createServer((req, res) => {
         req.on("end", () => {
             console.log("Corpo recebido:", body); // Debugging
     
-            if (body === null) {
+            if (!body) { // Corrigido erro na verificação de corpo vazio
                 res.writeHead(400, { "Content-Type": "application/json" });
-                res.end(JSON.stringify({ success: false, message: "Corpo da requisição vaziossson" }));
+                res.end(JSON.stringify({ success: false, message: "Corpo da requisição vazio" }));
                 return;
             }
-            console.log("Corpo recebido2:", body); // Debugging
-            console.log("Corpo recebido2-1:", body); // Debugging
+    
             try {
-                console.log("Corpo recebido2-2:", body); // Debugging
                 const paciente = JSON.parse(body);
-                
-                if (!paciente.name ) {  
+    
+                if (!paciente.name) {  
                     throw new Error("Dados do paciente inválidos");
                 }
-                console.log("Corpo recebido3:", body); // Debugging
+    
                 // Agora, carregamos a LISTA DE ESPERA, não os prontuários
                 fs.readFile(LISTA_FILE, "utf8", (err, data) => {
                     let listaDeEspera = [];
-                    console.log("Corpo recebido4:", body); // Debugging
+    
                     if (!err) {
                         try {
                             listaDeEspera = JSON.parse(data);
@@ -105,10 +103,14 @@ const server = http.createServer((req, res) => {
                         }
                     }
     
+                    // Correção na atribuição do ID do paciente
+                    paciente.id = listaDeEspera.length > 0 
+                        ? listaDeEspera[listaDeEspera.length - 1].id + 1 
+                        : 1;
+    
                     // Adiciona o novo paciente à lista de espera
                     listaDeEspera.push(paciente);
-                    console.log("Corpo recebido5:", body); // Debugging
-                    console.log("Corpo recebido5-1:", body); // Debugging
+    
                     // Salva a lista atualizada
                     fs.writeFile(LISTA_FILE, JSON.stringify(listaDeEspera, null, 2), err => {
                         if (err) {
@@ -116,14 +118,14 @@ const server = http.createServer((req, res) => {
                             res.end(JSON.stringify({ success: false, message: "Erro ao salvar paciente na lista de espera" }));
                             return;
                         }
-                        console.log("Corpo recebido6:", body); // Debugging
     
                         res.writeHead(200, { "Content-Type": "application/json" });
-                        res.end(JSON.stringify({ success: true, message: "Paciente adicionado à lista de espera com sucesso" }));
+                        res.end(JSON.stringify({ success: true, message: "Paciente adicionado à lista de espera com sucesso",id: paciente.id }));
                     });
                 });
     
             } catch (error) {
+                console.error("Erro ao processar JSON:", error);
                 res.writeHead(400, { "Content-Type": "application/json" });
                 res.end(JSON.stringify({ success: false, message: "Erro ao processar JSON" }));
             }
@@ -131,8 +133,10 @@ const server = http.createServer((req, res) => {
     
         return;
     }
+    
 
     if (req.method === "GET" && req.url === "/obter-lista") {
+        console.log("aaa");
         const lista = carregarArquivoJSON(LISTA_FILE);
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(lista));
@@ -169,13 +173,15 @@ const server = http.createServer((req, res) => {
         console.log("Corpo recebido11-1:", body); // Debugging
     
         req.on("end", () => {
+            idRetorno=-1;
             try {
                 console.log("Corpo recebido11-2:", body); // Debugging
                 let prontuarios = carregarProntuarios();
                 const novoProntuario = JSON.parse(body);
-    
+                
                 // Atribuir um ID único
                 novoProntuario.id = prontuarios.length + 1;
+                idRetorno=prontuarios.length + 1;
                 prontuarios.push(novoProntuario);
     
                 console.log("Corpo recebido11-3:", body); // Debugging
@@ -206,6 +212,7 @@ const server = http.createServer((req, res) => {
                     res.end(JSON.stringify({ success: false, message: "Erro ao salvar prontuário" }));
                 }
             }
+            return ;
         });
         return;
     }
@@ -228,9 +235,31 @@ const server = http.createServer((req, res) => {
         }
     }
 
+    if (req.method === "POST" && req.url === "/atualizar-lista") {
+        let body = "";
+        req.on("data", chunk => { body += chunk.toString(); });
+        req.on("end", () => {
+            try {
+                const novaLista = JSON.parse(body);
+                if (!Array.isArray(novaLista)) {
+                    throw new Error("Formato inválido: esperado um array de pacientes.");
+                }
+
+                salvarArquivoJSON(LISTA_FILE, novaLista);
+                res.writeHead(200, { "Content-Type": "application/json" });
+                res.end(JSON.stringify({ success: true, message: "Lista de espera atualizada com sucesso." }));
+            } catch (erro) {
+                res.writeHead(400, { "Content-Type": "application/json" });
+                res.end(JSON.stringify({ success: false, message: erro.message }));
+            }
+        });
+        return;
+    }
+
     // Servindo arquivos estáticos
     let filePath = path.join(req.url);
-
+       
+    
     if (req.url === "/" || req.url === "/index") {
         filePath = path.join(PUBLIC_DIR, "login.html");
     } else {

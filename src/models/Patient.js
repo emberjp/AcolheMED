@@ -1,5 +1,6 @@
 class Patient {
-    constructor(name, birthDate, cpf, gender, city, status, prontuario_id){
+    constructor(id,name, birthDate, cpf, gender, city, status, prontuario_id){
+        this.id=id;
         this.name = name;
         this.birthDate = birthDate;
         this.cpf = cpf;
@@ -11,6 +12,7 @@ class Patient {
 
     getInfo(){
         return {
+            id:this.id,
             name: this.name,
             birthDate: this.birthDate,
             cpf: this.cpf,

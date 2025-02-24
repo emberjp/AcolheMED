@@ -2,7 +2,7 @@ import ListaDeEspera from "../models/ListaDeEspera.js";
 import Prontuario from "../models/ProntuarioMed.js";
 import Patient from "../models/Patient.js";
 
-function coletarDadosFormulario() {
+async function coletarDadosFormulario() {
     const queixa = document.getElementById("Queixa").value;
     const observacoes = document.getElementById("Obsrvações").value;
     const medicamentos = document.getElementById("Medicamento").value;
@@ -21,12 +21,14 @@ function coletarDadosFormulario() {
     const es5 = document.getElementById("Es5").checked;
   
     const prontuario = new Prontuario(queixa, observacoes, medicamentos, alergias, dor, temperatura, pressaoArterial, freqCardiaca, freqRespiratoria, peso, especificidade, es1, es2, es3, es4, es5);
-    const paciente = new Patient("Jon","01/07/1985","111","masculino","s","esperando",prontuario.getId());
+    await prontuario.salvarProntuario();
+
+    const paciente = new Patient(0,"Jon","01/07/1985","111","masculino","s","esperando",prontuario.getId());
 
     ListaDeEspera.adicionarPaciente(paciente);
     console.log("Add");
     console.log("Prontuário criado:", prontuario);
-    prontuario.salvarProntuario();
+    
     return prontuario;
   }
   
