@@ -25,7 +25,50 @@ class Prontuario {
         return this.id;
     }
     classificaPrioridade(){
-        return this.prioridade;
+        if(this.especificidade=="Intoxicações"){
+            if(this.es3==true || this.es4==true){
+                return 5;
+            }
+            if(this.es1<=6 && this.es2!=null){
+                return 4;
+            }
+            if(this.es1>=6 && this.es2==null){
+                return 3;
+            }
+            if(this.es5==true){
+                return 2;
+            }
+            return 1;
+        }
+        if(this.especificidade==="PA"){
+            if((es2>130 || es1>85) && es4==true && es5==true)
+                return 5;
+            if((es2<=80 || es1<=60) && es3==true)
+                return 5;
+            if(es1>=130 && es4==true)
+                return 4;
+            if(es2>=220 && es4==true)
+                return 4;
+            if((es2>130 || es1>85) && es4==false && es5==true)
+                return 4;
+            if((es2<=80 || es1<=60) && es3==false)
+                return 4;
+            if((es2<=80 || es1<=60) && es5==true)
+                return 4;
+            if(es1>=130 && es4==false)
+                return 3;
+            if(es2>=220 && es4==false)
+                return 3;
+            if(es2>=180 && es2<=210 && es4==false)
+                return 3;
+            if(es1>=111 && es2<=113 && es4==false)
+                return 3;
+            if(es2<111 && es4==false)
+                return 2;
+            if(es2<180 && es4==false)
+                return 2;
+        }
+        return 1;
     }
     // Salva o prontuário permanentemente no JSON
     async salvarProntuario() {

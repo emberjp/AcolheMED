@@ -32,7 +32,7 @@ function mudarEspecificade()
   Label2.textContent="PAS";
   Label3.textContent="Sinais de choque";
    Label4.textContent ="Sintomas Associados";
-   Label5.textContent ="Hipotensão em criança";
+   Label5.textContent ="Criança";
    Mudanca.type='Number';
     };
 };
