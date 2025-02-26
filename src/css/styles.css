@@ -10,7 +10,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: montserrat;
     background-color: var(--light-green);
     display: flex;
     justify-content: center;
@@ -100,3 +100,9 @@ h1 {
     margin-bottom: 15px;
     text-align: left;
 }
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }

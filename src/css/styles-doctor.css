@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: montserrat;
     background-color: var(--beige);
     display: flex;
     justify-content: space-between;
@@ -129,7 +129,7 @@ textarea {
     background: #EAEAEA;
     height: 70px;
     font-size: 15px;
-    font-family: Arial, sans-serif;
+    font-family: montserrat;
     overflow: hidden;
 }
 
@@ -157,6 +157,7 @@ button {
     cursor: pointer;
     font-size: 22px;
     height: fit-content;
+    font-family: montserrat;
 }
 
 /* #ButDados{
@@ -244,3 +245,9 @@ main {
     flex-direction: column;
     justify-content: flex-start
 }
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
