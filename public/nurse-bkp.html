@@ -15,43 +15,14 @@
     <div id="icon">
       <img src="../Images/LogoCerta.png" id="Logo" alt="Logo" width="75" height="75">
     </div>
+    <div id="header-button">
+      <a href="patientData.html"> <button type="TrocaTela" id="ButDados">Dados Paciente</button></a>
+      <button type="TrocaTela" id="ButPro">Protocolo</button>
+    </div>
   </div>
 
   <main>
     <div class="Tudo">
-    
-        <div class="container">
-            <section>
-              <!-- Dados do Paciente -->
-              <h2 class="titulosec">Dados do Paciente</h2>
-              <div class="containerOutline">
-                
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome">
-                
-                <label for="nascimento">Data de nascimento</label>
-                <input type="date" id="nascimento" name="nascimento">
-                
-                <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf">
-                
-                <label for="sexo">Sexo</label>
-                <select id="sexo" name="sexo">
-                    <option>Selecione</option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                    <option>Outro</option>
-                </select>
-
-                <label for="cidade">Cidade</label>
-                <select id="cidade" name="cidade">
-                    <option>Selecione</option>
-                </select>
-
-              </div>
-            </section>
-          </div>
-
       <div class="container">
         <section>
           <!-- Abordagem Inicial -->
@@ -68,7 +39,18 @@
           </div>
         </section>
       </div>
-
+      <div class="container">
+        <section>
+          <!-- Dados extras -->
+          <h2 class="titulosec">Dados extras</h2>
+          <div class="containerOutline">
+            <label for="Alergia">Alergias</label>
+            <textarea type="text" id="Alergia" name="Alergia" required textarea></textarea>
+            <label for="Dor ">Escala de dor</label>
+            <input type="number" class="preencher" id="Dor" name="Dor" required min="0" max="10" />
+          </div>
+        </section>
+      </div>
       <div class="container">
         <section>
           <!-- Sinais Vitais Prinicipais -->
@@ -87,7 +69,6 @@
           </div>
         </section>
       </div>
-
       <div class="container">
         <section>
           <!-- Sinais Vitais Especificos -->
@@ -112,20 +93,6 @@
           </div>
         </section>
       </div>
-
-      <div class="container">
-        <section>
-          <!-- Dados extras -->
-          <h2 class="titulosec">Dados extras</h2>
-          <div class="containerOutline">
-            <label for="Alergia">Alergias</label>
-            <textarea type="text" id="Alergia" name="Alergia" required textarea></textarea>
-            <label for="Dor ">Escala de dor</label>
-            <input type="number" class="preencher" id="Dor" name="Dor" required min="0" max="10" />
-          </div>
-        </section>
-      </div>
-
     </div>
   </main>
 
