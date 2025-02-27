@@ -106,5 +106,17 @@
     "prontuario_id": 24,
     "prioridade": 3,
     "doctor": ""
+  },
+  {
+    "id": 11,
+    "name": "Jon",
+    "birthDate": "01/07/1985",
+    "cpf": "111",
+    "gender": "masculino",
+    "city": "s",
+    "status": "esperando",
+    "prontuario_id": 34,
+    "prioridade": 2,
+    "doctor": ""
   }
 ]

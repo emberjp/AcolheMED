@@ -41,8 +41,69 @@ async function coletarDadosFormulario() {
       console.log("Add");
       console.log("Prontuário criado:", prontuario);
     }
+    setTimeout(() => MostrarPopup(prioridade), 100); 
     return prontuario;
   }
+    function MostrarPopup(prioridade) {
+      // Mapeamento de cores e nomes
+      const prioridades = {
+          1: { cor: "#0000FF", nome: "Azul" },
+          2: { cor: "#00FF00", nome: "Verde" },
+          3: { cor: "#FFFF00", nome: "Amarelo" },
+          4: { cor: "#FFA500", nome: "Laranja" },
+          5: { cor: "#FF0000", nome: "Vermelho" }
+      };
   
+      // Criar elementos do popup
+      const popup = document.createElement("div");
+      const conteudo = document.createElement("div");
+      const texto = document.createElement("p");
+      const botaoFechar = document.createElement("button");
+  
+      // Estilização do popup
+      popup.style.position = "fixed";
+      popup.style.top = "0";
+      popup.style.left = "0";
+      popup.style.width = "100%";
+      popup.style.height = "100%";
+      popup.style.backgroundColor = "rgba(0,0,0,0.5)";
+      popup.style.display = "flex";
+      popup.style.justifyContent = "center";
+      popup.style.alignItems = "center";
+      popup.style.zIndex = "1000";
+  
+      // Estilização do conteúdo
+      conteudo.style.backgroundColor = prioridades[prioridade].cor;
+      conteudo.style.padding = "2rem";
+      conteudo.style.borderRadius = "15px";
+      conteudo.style.textAlign = "center";
+      conteudo.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
+  
+      // Texto do popup
+      texto.textContent = `Prioridade ${prioridade} - ${prioridades[prioridade].nome}`;
+      texto.style.color = "#fff";
+      texto.style.fontSize = "1.5rem";
+      texto.style.marginBottom = "1rem";
+  
+      // Botão de fechar
+      botaoFechar.textContent = "Fechar";
+      botaoFechar.style.padding = "0.5rem 2rem";
+      botaoFechar.style.borderRadius = "20px";
+      botaoFechar.style.border = "none";
+      botaoFechar.style.cursor = "pointer";
+      botaoFechar.style.backgroundColor = "#7d7d7d";
+  
+      // Montagem dos elementos
+      conteudo.appendChild(texto);
+      conteudo.appendChild(botaoFechar);
+      popup.appendChild(conteudo);
+      document.body.appendChild(popup);
+  
+      // Fechar o popup
+      botaoFechar.addEventListener("click", () => {
+          document.body.removeChild(popup);
+      });
+  }
+
   // Associar a função ao botão de confirmação
   document.getElementById("ButConfirmar").addEventListener("click", coletarDadosFormulario);
