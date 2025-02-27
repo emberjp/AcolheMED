@@ -1,3 +1,4 @@
+let enviar=false;
 function mudarEspecificade()
 {
     var select = document.getElementById('Especificidade');
@@ -32,7 +33,7 @@ function mudarEspecificade()
   Label2.textContent="PAS";
   Label3.textContent="Sinais de choque";
    Label4.textContent ="Sintomas Associados";
-   Label5.textContent ="Hipotensão em criança";
+   Label5.textContent ="Criança";
    Mudanca.type='Number';
     };
 };
@@ -59,7 +60,18 @@ function verifica() {
       // Se todos os campos obrigatórios foram preenchidos
       alert("Formulário enviado com sucesso!");
       // Aqui você pode adicionar o código para enviar o formulário se necessário
+      enviar=true;
     }
+
   }
   
+ document.addEventListener("DOMContentLoaded", function () {
+    const disconnectBtn = document.getElementById("ButDesconectar");
     
+    disconnectBtn.addEventListener("click", function () {
+        if (confirm("Deseja realmente sair?")) {
+            localStorage.removeItem("user"); // Remove o usuário do localStorage
+            window.location.href = "login.html";
+        }
+    });
+});   

@@ -1,63 +1,123 @@
-document.addEventListener("DOMContentLoaded", function () {
+import Doctor from "../models/Doctor.js";
+import Prontuario from "../models/ProntuarioMed.js";
+import Patient from "../models/Patient.js";
+
+document.addEventListener("DOMContentLoaded", async function () {
     const disconnectBtn = document.getElementById("Desconectar");
     const endAppointmentBtn = document.getElementById("Terminar");
     const startAppointmentBtn = document.getElementById("Iniciar");
     const nextPatientBtn = document.getElementById("Proximo");
     const cancelAppointmentBtn = document.getElementById("Cancelar");
-    
-    disconnectBtn.addEventListener("click", function () {
+
+    // Recupera o ID do médico logado
+    const user = JSON.parse(localStorage.getItem('user'));
+    const doctor = new Doctor(1, user.name);
+    console.log(user);
+    console.log(doctor);
+    await doctor.verifyCurrentPatient();
+    var currentPatient = doctor.currentPatient;
+    console.log("corrente",currentPatient);
+    if(currentPatient)
+        await loadPatientData(currentPatient);
+    disconnectBtn.addEventListener("click", () => {
         if (confirm("Deseja realmente sair?")) {
+            localStorage.removeItem("user");
             window.location.href = "login.html";
         }
     });
 
-    endAppointmentBtn.addEventListener("click", function () {
-        alert("Consulta finalizada com sucesso!");
-        cleanPatientData();
-        
+    nextPatientBtn.addEventListener("click", () => {
+        if (currentPatient) {
+            alert("Finalize a consulta antes de chamar outro paciente.");
+            return;
+        }
+    
+        doctor.callNextPatient().then(result => {
+            console.log("Resultado:", result);
+            
+            if (result.success) {
+                currentPatient = result.paciente;
+                loadPatientData(currentPatient);
+            } else {
+                alert(result.message);
+            }
+        }).catch(error => {
+            console.error("Erro ao chamar o próximo paciente:", error);
+        });
     });
 
-    nextPatientBtn.addEventListener("click", function () {
-        alert("Chamando próximo paciente...");
-        loadPatientData();
+    startAppointmentBtn.addEventListener("click", () => {
+        if (!currentPatient) {
+            alert("Nenhum paciente foi chamado.");
+            return;
+        }
+        alert("Consulta iniciada para " + currentPatient.name);
     });
 
-    cancelAppointmentBtn.addEventListener("click", function() {
-        if (confirm("Deseja cancelar a consulta?")) {
+    endAppointmentBtn.addEventListener("click", async () => {
+        if (!currentPatient) {
+            alert("Nenhum paciente em atendimento.");
+            return;
+        }
+        try {
+            const result = await doctor.endAppointment(); // Aguarda a promessa ser resolvida
+            alert(result.message);
             cleanPatientData();
+            currentPatient = null;
+        } catch (error) {
+            console.error("Erro ao finalizar atendimento:", error);
         }
     });
-
-    startAppointmentBtn.addEventListener("click", function() {
-        
+    
+    cancelAppointmentBtn.addEventListener("click", async () => {
+        if (!currentPatient) {
+            alert("Nenhum paciente para cancelar.");
+            return;
+        }
+        try {
+            const result = await doctor.cancelAppointment(); // Aguarda a promessa ser resolvida
+            alert(result.message);
+            cleanPatientData();
+            currentPatient = null;
+        } catch (error) {
+            console.error("Erro ao cancelar atendimento:", error);
+        }
     });
+    
 });
 
+async function loadPatientData(patient) {
+    console.log("aa",patient)
+    const prontuario = await Prontuario.obter(patient.getProntuarioId());
+    console.log(prontuario);
+    const fields = {
+        Queixa: prontuario.queixa,
+        Obsrvações: prontuario.observacoes,
+        Medicamento: prontuario.medicamentos,
+        Alergia: prontuario.alergias,
+        Dor: prontuario.dor,
+        Temp: `${prontuario.temperatura}°C`,
+        Arterial: prontuario.pressaoArterial,
+        Cardiaca: `${prontuario.freqCardiaca} bpm`,
+        Respiratória: `${prontuario.freqRespiratoria} rpm`,
+        Peso: `${prontuario.peso} kg`,
+        especificidade: prontuario.especificidade,
+        Es1: prontuario.es1,
+        Es2: prontuario.es2,
+        Es3: prontuario.es3,
+        Es4: prontuario.es4
+    };
 
-//the content for test
-function loadPatientData() {
-    document.getElementById("Queixa").textContent = "Dor de cabeça ideswdfwantensa"; 
-    document.getElementById("Obsrvações").textContent = "Paciente relatou início há 3 dias";
-    document.getElementById("Medicamento").innerHTML = "Paracetamol 750mg";
-
-    document.getElementById("Alergia").textContent = "Nenhuma conhecida";
-    document.getElementById("Dor").textContent = "7";
-
-    document.getElementById("Temp").textContent = "37.5°C";
-    document.getElementById("Arterial").textContent = "120/80";
-    document.getElementById("Cardiaca").textContent = "75 bpm";
-    document.getElementById("Respiratória").textContent = "18 rpm";
-    document.getElementById("Peso").textContent = "70 kg";
-
-    document.getElementById("especificidade").textContent = "Exemplo";
-    document.getElementById("Es1").textContent = "100";
-    document.getElementById("Es2").textContent = "200";
-    document.getElementById("Es3").textContent = "300";
-    document.getElementById("Es4").textContent = "400";
+    Object.keys(fields).forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.textContent = fields[id];
+        }
+    });
 }
 
-function cleanPatientData(){
+function cleanPatientData() {
     document.querySelectorAll(".show-info-box, .show-info-line").forEach(element => {
-        element.innerHTML = ""; // Limpa o conteúdo das divs
+        element.textContent = "";
     });
 }

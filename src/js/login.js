@@ -15,31 +15,46 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //checks the login informations and redirects the user to their respective pages
-function checkCredentials(username, password, errorMessage) {
+async function checkCredentials(username, password, errorMessage) {
     if (username === "" || password === "") {
         errorMessage.textContent = "Preencha todos os campos!";
         errorMessage.style.display = "block";
         return;
     }
-    
-    const data = checkDataBase(username, password);//(is in data base, user type)
 
-    if (!data[0]) {
-        alert("Usuário ou senha incorretos!");
-        errorMessage.style.display = "block";
-    } else {
-        alert("Login bem-sucedido!");
-        const userType = data[1];
-        
-        if(userType === 0){
-            window.location.href = "doctor.html";
-        }
-        else if(userType === 1){
+    try {
+        const response = await fetch("/check-login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+            alert("Usuário ou senha incorretos!");
+            errorMessage.style.display = "block";
+        } else {
+            alert("Login bem-sucedido!");
+            
+            // Redireciona com base no tipo de usuário
+            if (data.role === "doctor") {
+                window.location.href = "doctor.html";
+                localStorage.setItem("user", JSON.stringify({name:username, role: "doctor" }));
+            } else if (data.role === "nurse") {
                 window.location.href = "nurse.html";
-        }
-        else if(userType === 2){
+                localStorage.setItem("user", JSON.stringify({name:username, role: "nurse" }));
+            } else if (data.role === "receptionist") {
                 window.location.href = "receptionist.html";
+                localStorage.setItem("user", JSON.stringify({name:username, role: "receptionist" }));
+            }
         }
+    } catch (error) {
+        console.error("Erro ao conectar com o servidor:", error);
+        errorMessage.textContent = "Erro ao conectar com o servidor.";
+        errorMessage.style.display = "block";
     }
 }
 
@@ -56,3 +71,20 @@ function checkDataBase(username, password) {
     else
         return [false, -1];
 }
+
+function checkAuthForLoginPage() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        // Se houver usuário logado, redireciona para sua página principal
+        const accessRules = {
+            'doctor': 'doctor.html',
+            'nurse': 'nurse.html',
+            'receptionist': 'receptionist.html'
+        };
+        window.location.href = accessRules[user.role];
+        return;
+    }
+}
+
+// Chamar a verificação de login e permissão ao carregar as páginas protegidas
+checkAuthForLoginPage();

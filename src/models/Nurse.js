@@ -6,4 +6,4 @@ class Nurse extends User {
     }
 }
 
-module.exports = Nurse;
+export default Nurse;
