@@ -11,10 +11,17 @@ const LISTA_FILE = path.join( "listaDeEspera.json");
 const PRONTUARIOS_FILE = path.join( "prontuarios.json");
 
 function carregarArquivoJSON(caminho) {
-    if (fs.existsSync(caminho)) {
-        return JSON.parse(fs.readFileSync(caminho, "utf8"));
+    if (!fs.existsSync(caminho)) {
+        return []; // Se o arquivo não existir, retorna um array vazio
     }
-    return [];
+
+    try {
+        const data = fs.readFileSync(caminho, "utf8").trim();
+        return data ? JSON.parse(data) : []; // Se o JSON for vazio, retorna []
+    } catch (error) {
+        console.error(`Erro ao carregar JSON do arquivo ${caminho}:`, error);
+        return []; // Retorna [] em caso de erro
+    }
 }
 
 function salvarArquivoJSON(caminho, dados) {
@@ -22,12 +29,16 @@ function salvarArquivoJSON(caminho, dados) {
 }
 
 function carregarProntuarios() {
+    if (!fs.existsSync(PRONTUARIOS_FILE)) {
+        return []; // Se o arquivo não existir, retorna um array vazio
+    }
+
     try {
-        const data = fs.readFileSync(PRONTUARIOS_FILE, "utf8");
-        return JSON.parse(data) || [];
+        const data = fs.readFileSync(PRONTUARIOS_FILE, "utf8").trim();
+        return data ? JSON.parse(data) : []; // Se o JSON for vazio ou apenas espaços, retorna []
     } catch (error) {
         console.error("Erro ao carregar prontuários:", error);
-        return [];
+        return []; // Retorna [] em caso de erro
     }
 }
 
@@ -234,15 +245,12 @@ const server = http.createServer((req, res) => {
         const id = parseInt(urlParams.searchParams.get("id"));
 
         let prontuarios = carregarProntuarios();
-        const prontuario = prontuarios.find(p => p.id === id);
-        
-        if (prontuario) {
-            res.writeHead(200, { "Content-Type": "application/json" });
-            res.end(JSON.stringify(prontuario));
-        } else {
-            res.writeHead(404, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ success: false, message: "Prontuário não encontrado" }));
-        }
+        var prontuario = prontuarios.find(p => p.id === id);
+        if(!prontuario)
+            prontuario={};
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(prontuario));
+
         return;
     }
 

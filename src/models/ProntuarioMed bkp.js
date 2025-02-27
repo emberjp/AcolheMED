@@ -92,7 +92,8 @@ class Prontuario {
     static async obterProntuario(id) {
         try {
             const resposta = await fetch(`/obter-prontuario?id=${id}`);
-            if (!resposta.ok) throw new Error("Erro ao obter prontuário");
+            if (!resposta) 
+                return null;
     
             return await resposta.json();
                 
@@ -103,10 +104,19 @@ class Prontuario {
     }
     static async obter(id){
         const pront= await this.obterProntuario(id) ;
-        let prontuario=new Prontuario(pront.queixa, pront.observacoes, pront.medicamentos, 
-            pront.alergias, pront.dor, pront.temperatura, pront.pressaoArterial, pront.freqCardiaca, pront.freqRespiratoria, pront.peso, pront.especificidade, 
-            pront.es1, pront.es2, prontes3, pront.es4, pront.es5);
-        prontuario.id=pront.id;
+        let prontuario=null;
+        if(pront!=null){
+            prontuario=new Prontuario(pront.queixa, pront.observacoes, pront.medicamentos, 
+                pront.alergias, pront.dor, pront.temperatura, pront.pressaoArterial, pront.freqCardiaca, pront.freqRespiratoria, pront.peso, pront.especificidade, 
+                pront.es1, pront.es2, pront.es3, pront.es4, pront.es5);
+            prontuario.id=pront.id;
+        }    
+        else{
+            prontuario=new Prontuario("inválido", "inválido", "inválido", 
+                "inválido", "-", "-", "-","-", "-", "-", "-", 
+                "-", "-", "-", "-", "-");
+        }
+            
         return prontuario;
     }
 
