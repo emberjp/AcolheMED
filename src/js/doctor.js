@@ -1,4 +1,6 @@
 import Doctor from "../models/Doctor.js";
+import Prontuario from "../models/ProntuarioMed.js";
+import Patient from "../models/Patient.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
     const disconnectBtn = document.getElementById("Desconectar");
@@ -10,8 +12,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Recupera o ID do médico logado
     const user = JSON.parse(localStorage.getItem('user'));
     const doctor = new Doctor(1, user.name);
-    let currentPatient = null;
-
+    console.log(user);
+    console.log(doctor);
+    await doctor.verifyCurrentPatient();
+    var currentPatient = doctor.currentPatient
+    console.log(currentPatient);
+    if(currentPatient)
+        await loadPatientData(currentPatient);
     disconnectBtn.addEventListener("click", () => {
         if (confirm("Deseja realmente sair?")) {
             localStorage.removeItem("user");
@@ -79,23 +86,26 @@ document.addEventListener("DOMContentLoaded", async function () {
     
 });
 
-function loadPatientData(patient) {
+async function loadPatientData(patient) {
+    console.log("aa",patient)
+    const prontuario = await Prontuario.obter(patient.getProntuarioId());
+    console.log(prontuario);
     const fields = {
-        Queixa: patient.queixa,
-        Observacoes: patient.observacoes,
-        Medicamento: patient.medicamentos,
-        Alergia: patient.alergias,
-        Dor: patient.dor,
-        Temp: `${patient.temperatura}°C`,
-        Arterial: patient.pressao,
-        Cardiaca: `${patient.frequenciaCardiaca} bpm`,
-        Respiratoria: `${patient.frequenciaRespiratoria} rpm`,
-        Peso: `${patient.peso} kg`,
-        especificidade: patient.especificidade,
-        Es1: patient.es1,
-        Es2: patient.es2,
-        Es3: patient.es3,
-        Es4: patient.es4
+        Queixa: prontuario.queixa,
+        Obsrvações: prontuario.observacoes,
+        Medicamento: prontuario.medicamentos,
+        Alergia: prontuario.alergias,
+        Dor: prontuario.dor,
+        Temp: `${prontuario.temperatura}°C`,
+        Arterial: prontuario.pressaoArterial,
+        Cardiaca: `${prontuario.freqCardiaca} bpm`,
+        Respiratória: `${prontuario.freqRespiratoria} rpm`,
+        Peso: `${prontuario.peso} kg`,
+        especificidade: prontuario.especificidade,
+        Es1: prontuario.es1,
+        Es2: prontuario.es2,
+        Es3: prontuario.es3,
+        Es4: prontuario.es4
     };
 
     Object.keys(fields).forEach(id => {

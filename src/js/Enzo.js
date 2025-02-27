@@ -1,3 +1,4 @@
+let enviar=false;
 function mudarEspecificade()
 {
     var select = document.getElementById('Especificidade');
@@ -59,7 +60,9 @@ function verifica() {
       // Se todos os campos obrigatórios foram preenchidos
       alert("Formulário enviado com sucesso!");
       // Aqui você pode adicionar o código para enviar o formulário se necessário
+      enviar=true;
     }
+
   }
   
  document.addEventListener("DOMContentLoaded", function () {

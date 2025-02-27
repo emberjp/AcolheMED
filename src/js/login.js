@@ -42,13 +42,13 @@ async function checkCredentials(username, password, errorMessage) {
             // Redireciona com base no tipo de usuário
             if (data.role === "doctor") {
                 window.location.href = "doctor.html";
-                localStorage.setItem("user", JSON.stringify({ role: "doctor" }));
+                localStorage.setItem("user", JSON.stringify({name:username, role: "doctor" }));
             } else if (data.role === "nurse") {
                 window.location.href = "nurse.html";
-                localStorage.setItem("user", JSON.stringify({ role: "nurse" }));
+                localStorage.setItem("user", JSON.stringify({name:username, role: "nurse" }));
             } else if (data.role === "receptionist") {
                 window.location.href = "receptionist.html";
-                localStorage.setItem("user", JSON.stringify({ role: "receptionist" }));
+                localStorage.setItem("user", JSON.stringify({name:username, role: "receptionist" }));
             }
         }
     } catch (error) {

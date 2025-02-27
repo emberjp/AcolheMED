@@ -137,9 +137,19 @@ const server = http.createServer((req, res) => {
 
     if (req.method === "GET" && req.url === "/obter-lista") {
         console.log("aaa");
+        
+        // Carregar o arquivo JSON
         const lista = carregarArquivoJSON(LISTA_FILE);
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(lista));
+        
+        // Verificar se a lista está vazia ou não foi carregada corretamente
+        if (!Array.isArray(lista) || lista.length === 0) {
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify([])); // Retorna um vetor vazio
+        } else {
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(lista)); // Retorna a lista carregada
+        }
+        
         return;
     }
 
@@ -233,6 +243,7 @@ const server = http.createServer((req, res) => {
             res.writeHead(404, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ success: false, message: "Prontuário não encontrado" }));
         }
+        return;
     }
 
     if (req.method === "POST" && req.url === "/atualizar-lista") {
@@ -267,10 +278,9 @@ const server = http.createServer((req, res) => {
             filePath = path.join(SRC_DIR, req.url.replace("/src/", ""));
         } else if (req.url.startsWith("/Images/")) {
             filePath = path.join(IMG_DIR, req.url.replace("/Images/", ""));
-        } else {
+        } else if (req.url.startsWith("/")) {
             filePath = path.join(PUBLIC_DIR, req.url.replace("/public/", ""));
-        }
-
+        } 
         if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
             res.writeHead(404, { "Content-Type": "text/html" });
             res.end("<h1>404 - Página não encontrada</h1>");
