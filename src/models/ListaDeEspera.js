@@ -88,30 +88,34 @@ class ListaDeEspera {
                             break;
                         }
                     }
+                    if(!encontrouPrimeiro)
+                        posicao=i;
                     console.log("aab",posicao);
-                    if(posicao===(tamanho-1))
+
+                    if(posicao>=(tamanho-1))
                         this.lista.push(paciente)
                     else{
                         let maximaConc= Math.min(4,Math.max(1,0.4*tamanho))
+                        let distancia=0;
+                        console.log(maximaConc," ",contagemPrioridade3);
                         if (contagemPrioridade3 > maximaConc) {
                             // Inserir a 1 de distância da sequência de prioridade 3
-                            posicao ++; 
+                            distancia=1; 
                         } 
-                        else {
-                        // Ajusta posição com base nas faixas de percentual
-                            let distancia = 0; // Distância padrão
-                            if (posicao <= Math.floor(tamanho * 0.60)){
-                                if (posicao >= Math.floor(tamanho * 0.5)) 
-                                    distancia = 1;
-                                else if(posicao >= Math.floor(tamanho * 0.35)) 
-                                    distancia=2;
-                                else
-                                    distancia=3;
+                        
+                        if (posicao < Math.floor(tamanho * 0.60)){
+                            if (posicao >= Math.floor(tamanho * 0.5)) 
+                                distancia = 1;
+                            else if(posicao >= Math.floor(tamanho * 0.35)) 
+                                distancia=2;
+                            else
+                                 distancia=3;
 
-                            }
-                            distancia= Math.min(distancia,Math.floor(tamanho/12)+1);
-                            posicao=Math.min((posicao+distancia),tamanho-1);
-                    }
+                        }
+                        console.log("dis",distancia);
+                        distancia= Math.min(distancia,Math.floor(tamanho/12)+1);
+                        posicao=Math.min((posicao+distancia),tamanho-1);
+                    
 
         
                         // Insere o paciente na lista
