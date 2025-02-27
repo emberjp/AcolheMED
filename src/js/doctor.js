@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log(user);
     console.log(doctor);
     await doctor.verifyCurrentPatient();
-    var currentPatient = doctor.currentPatient
-    console.log(currentPatient);
+    var currentPatient = doctor.currentPatient;
+    console.log("corrente",currentPatient);
     if(currentPatient)
         await loadPatientData(currentPatient);
     disconnectBtn.addEventListener("click", () => {

@@ -27,7 +27,7 @@ class Doctor {
         nextPatient.status = "em atendimento";
         nextPatient.doctor=this.name;
         await ListaDeEspera.atualizarLista(lista);
-        const nPatient=new Patient(nextPatient.id,nextPatient.name,nextPatient.birthDate,nextPatient.cpf,nextPatient.gender,nextPatient.city,nextPatient.status,nextPatient.prontuario_id,this.name);
+        const nPatient=new Patient(nextPatient.id,nextPatient.name,nextPatient.birthDate,nextPatient.cpf,nextPatient.gender,nextPatient.city,nextPatient.status,nextPatient.prontuario_id,nextPatient.prioridade,this.name);
         this.currentPatient = nPatient;
         
         return { success: true, paciente: nPatient };
@@ -40,9 +40,10 @@ class Doctor {
         const possiblePatient = lista.find(paciente => (paciente.status === "esperando" || paciente.doctor==this.name));
         if(possiblePatient && possiblePatient.doctor == this.name)
            this.currentPatient=new Patient(possiblePatient.id,possiblePatient.name,
-            possiblePatient.birthDate,possiblePatient.cpf,possiblePatient.gender,possiblePatient.city,possiblePatient.status,possiblePatient.prontuario_id,possiblePatient.doctor);
+            possiblePatient.birthDate,possiblePatient.cpf,possiblePatient.gender,possiblePatient.city,possiblePatient.status,possiblePatient.prontuario_id,possiblePatient.prioridade,possiblePatient.doctor);
 
     }
+    
 
     // Finaliza a consulta do paciente atual
     async endAppointment() {
@@ -51,7 +52,7 @@ class Doctor {
         }
 
         await ListaDeEspera.removerPaciente(this.currentPatient.id);
-
+        this.currentPatient.changeStatus("Atendido");
         this.currentPatient = null; // Médico fica livre
         return { success: true, message: "Atendimento finalizado." };
     }
