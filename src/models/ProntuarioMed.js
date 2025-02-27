@@ -19,20 +19,20 @@ class Prontuario {
         this.es3 = es3;
         this.es4 = es4;
         this.es5 = es5;
-        this.prioridade = 3;
+        this.prioridade = this.classificaPrioridade();
     }
     getId() {
         return this.id;
     }
     classificaPrioridade(){
-        if(this.especificidade=="Intoxicações"){
+        if(this.especificidade==="Intoxicações"){
             if(this.es3==true || this.es4==true){
                 return 5;
             }
-            if(this.es1<=6 && this.es2!=null){
+            if(this.es1<=6 && this.es2!="Nenhum"){
                 return 4;
             }
-            if(this.es1>=6 && this.es2==null){
+            if(this.es1>=6 && this.es2==="Nenhum"){
                 return 3;
             }
             if(this.es5==true){
@@ -41,31 +41,31 @@ class Prontuario {
             return 1;
         }
         if(this.especificidade==="PA"){
-            if((es2>130 || es1>85) && es4==true && es5==true)
+            if((this.es2>130 || this.es1>85) && this.es4==true && this.es5==true)
                 return 5;
-            if((es2<=80 || es1<=60) && es3==true)
+            if((this.es2<=80 || this.es1<=60) && this.es3==true)
                 return 5;
-            if(es1>=130 && es4==true)
+            if(this.es1>=130 && this.es4==true)
                 return 4;
-            if(es2>=220 && es4==true)
+            if(this.es2>=220 && this.es4==true)
                 return 4;
-            if((es2>130 || es1>85) && es4==false && es5==true)
+            if((this.es2>130 || this.es1>85) && this.es4==false && this.es5==true)
                 return 4;
-            if((es2<=80 || es1<=60) && es3==false)
+            if((this.es2<=80 || this.es1<=60) && this.es3==false)
                 return 4;
-            if((es2<=80 || es1<=60) && es5==true)
+            if((this.es2<=80 || this.es1<=60) && this.es5==true)
                 return 4;
-            if(es1>=130 && es4==false)
+            if(this.es1>=130 && this.es4==false)
                 return 3;
-            if(es2>=220 && es4==false)
+            if(this.es2>=220 && this.es4==false)
                 return 3;
-            if(es2>=180 && es2<=210 && es4==false)
+            if(this.es2>=180 && this.es2<=210 && this.es4==false)
                 return 3;
-            if(es1>=111 && es2<=113 && es4==false)
+            if(this.es1>=111 && this.es2<=113 && this.es4==false)
                 return 3;
-            if(es2<111 && es4==false)
+            if(this.es2<111 && this.es4==false)
                 return 2;
-            if(es2<180 && es4==false)
+            if(this.es2<180 && this.es4==false)
                 return 2;
         }
         return 1;
