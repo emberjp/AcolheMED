@@ -90,6 +90,22 @@ async function loadPatientData(patient) {
     console.log("aa",patient)
     const prontuario = await Prontuario.obter(patient.getProntuarioId());
     console.log(prontuario);
+    var l1 = 'Tempo da ingestão/inalação';
+    var l2 = 'Sintomas';
+    var l3 = 'Anafilia';
+    var l4 ='Alteração do nivel de consciência';
+    var l5 = 'Alterações dérmicas apenas locais';
+
+
+    if(prontuario.especificidade==='PA')
+    {
+        l1= 'PAD';
+        l2= 'PAS';
+        l3= 'Sinais de choque';
+        l4= 'Sintomas Associados';
+        l5= 'Criança';
+
+    }
     const fields = {
         Queixa: prontuario.queixa,
         Obsrvações: prontuario.observacoes,
@@ -102,11 +118,39 @@ async function loadPatientData(patient) {
         Respiratória: `${prontuario.freqRespiratoria} rpm`,
         Peso: `${prontuario.peso} kg`,
         especificidade: prontuario.especificidade,
+         
         Es1: prontuario.es1,
         Es2: prontuario.es2,
         Es3: prontuario.es3,
-        Es4: prontuario.es4
+        Es4: prontuario.es4,
+        Es5: prontuario.es5,
+        Les1: l1,
+        Les2: l2,
+        Les3: l3,
+        Les4: l4,
+        Les5: l5
     };
+   /* var Label1 =document.getElementById('Les1');
+    var Label2 =document.getElementById('Les2');
+    var Label3 =document.getElementById('Les3');
+    var Label4 =document.getElementById('Les4');
+    var Label5 =document.getElementById('Les5');
+    if(especificidade==='PA')
+        {
+            Label1.textContent ="PAD";
+            Label2.textContent="PAS";
+            Label3.textContent="Sinais de choque";
+             Label4.textContent ="Sintomas Associados";
+             Label5.textContent ="Criança";
+        }
+    if(especificidade==='Intoxicações')
+        {
+            Label1.textContent ="Tempo da ingestão/inalação";
+            Label2.textContent ="Sintomas";
+            Label3.textContent ="Anafilia";
+            Label4.textContent ="Alteração do nivel de consciência";
+            Label5.textContent ="Alterações dérmicas apenas locais";
+        }*/
 
     Object.keys(fields).forEach(id => {
         const element = document.getElementById(id);
