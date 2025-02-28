@@ -106,17 +106,5 @@
     "prontuario_id": 24,
     "prioridade": 3,
     "doctor": ""
-  },
-  {
-    "id": 11,
-    "name": "NOME",
-    "birthDate": "2017-01-27",
-    "cpf": "333",
-    "gender": "Masculino",
-    "city": "juizDeFora",
-    "status": "esperando",
-    "prontuario_id": 29,
-    "prioridade": 2,
-    "doctor": ""
   }
 ]

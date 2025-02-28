@@ -58,7 +58,7 @@ function verifica() {
       alert(mensagemErro); // Exibe as mensagens de erro em um alerta
     } else {
       // Se todos os campos obrigatórios foram preenchidos
-      alert("Formulário enviado com sucesso!");
+     // alert("Formulário enviado com sucesso!");
       // Aqui você pode adicionar o código para enviar o formulário se necessário
       enviar=true;
     }
