@@ -265,11 +265,11 @@ main {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    color: #333;
+    color: var(--dark-green);
 }
 
 .prioridade-2 {
-    background-color: #87CEEB;
+    background-color: #7FFFD4;;
 }
 
 .prioridade-3 {

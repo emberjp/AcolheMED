@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
       filaDiv.innerHTML = "";
 
       // Processa cada paciente
-      for (const paciente of pacientes) {
+      for (let i = 0; i < pacientes.length; i++) {
+        const paciente = pacientes[i];
         let prontuario = null;
 
         // Verifica se o paciente tem um prontuário associado
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pacienteCard.textContent = paciente.name;
 
         // Adiciona o card à seção correta
-        if (paciente.status === "em atendimento") {
+        if (i < 2) {
           proximosDiv.appendChild(pacienteCard);
         } else {
           filaDiv.appendChild(pacienteCard);
