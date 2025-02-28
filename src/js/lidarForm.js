@@ -26,16 +26,22 @@ async function coletarDadosFormulario() {
     const es3 = document.getElementById("Es3").checked;
     const es4 = document.getElementById("Es4").checked;
     const es5 = document.getElementById("Es5").checked;
+    
+    const nome = document.getElementById("nome").value;
+    const nascimento = document.getElementById("nascimento").value;
+    const sexo = document.getElementById("sexo").value;
+    const cidade = document.getElementById("cidade").value;
+    const cpf = document.getElementById("cpf").value;
 
     const prontuario = new Prontuario(queixa, observacoes, medicamentos, alergias, dor, temperatura, pressaoArterial, 
       freqCardiaca, freqRespiratoria, peso, especificidade, 
       es1, es2, es3, es4, es5);
-    
+      
     await prontuario.salvarProntuario();
 
     const prioridade=prontuario.classificaPrioridade();  
     if(prioridade===2 || prioridade===3){
-      const paciente = new Patient(0,"Jon","01/07/1985","111","masculino","s","esperando",prontuario.getId(),prioridade,"");
+      const paciente = new Patient(0,nome, nascimento, cpf, sexo, cidade, "esperando",prontuario.getId(),prioridade,"");
 
       ListaDeEspera.adicionarPaciente(paciente);
       console.log("Add");
