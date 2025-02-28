@@ -1,4 +1,5 @@
-import Prontuario from "./models/ProntuarioMed.js";
+import ListaDeEspera from "../models/ListaDeEspera.js";
+import Prontuario from "../models/ProntuarioMed.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const proximosDiv = document.getElementById("proximos");
@@ -10,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   async function carregarPacientes() {
     try {
       // Carrega o arquivo JSON local
-      const response = await fetch("../listaDeEspera.json"); // Ajuste o caminho conforme necessário
-      const pacientes = await response.json();
+      await ListaDeEspera.carregarLista();
+      const pacientes = ListaDeEspera.obterLista();
 
       // Limpa as divs
       proximosDiv.innerHTML = "";
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pacienteCard.textContent = paciente.name;
 
         // Adiciona o card à seção correta
-        if (paciente.status === "Próximo") {
+        if (paciente.status === "em atendimento") {
           proximosDiv.appendChild(pacienteCard);
         } else {
           filaDiv.appendChild(pacienteCard);
